@@ -1,0 +1,13 @@
+.main-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+    url("../data/images/Jade-Colossus.jpg") center center / cover, #333;
+  background-attachment: fixed;
+
+  height: 100vh;
+  width: 100vw;
+}

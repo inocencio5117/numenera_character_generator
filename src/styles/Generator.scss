@@ -1,0 +1,55 @@
+.generator {
+  header {
+    margin-bottom: 1rem;
+  }
+
+  margin-bottom: 1rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 15px;
+
+  background-color: white;
+
+  height: 26rem;
+  width: 40rem;
+
+  form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    #descriptor,
+    #type,
+    #foci {
+      margin: 1rem 0rem;
+      padding: 0.5rem;
+
+      background-color: rgb(114, 114, 114);
+      border: none;
+      border-radius: 8px;
+      color: white;
+    }
+
+    .submit-button {
+      margin: 1rem 0rem;
+      padding: 0.5rem;
+
+      background-color: rgb(114, 114, 114);
+      border: none;
+      border-radius: 8px;
+      color: white;
+
+      transition: all 300ms ease-in-out;
+
+      &:hover {
+        background-color: blue;
+        color: #333;
+      }
+    }
+  }
+}
