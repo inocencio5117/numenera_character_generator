@@ -1,6 +1,8 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 
 import { foci, types, descriptors } from "../data/character_data";
+
+import { CharacterContext } from "../contexts/CharacterContext";
 
 import "../styles/Generator.scss";
 
@@ -9,30 +11,35 @@ function Generator() {
   const [stateDescriptor, setStateDescriptor] = useState("");
   const [stateFoci, setStateFoci] = useState("");
 
-  function getFoci(e: any) {
+  const { characterInfo, setCharacterInfo } = useContext(CharacterContext);
+
+  function getFoci(e: React.ChangeEvent<HTMLSelectElement>) {
     const foci = e.target.value;
 
     setStateFoci(foci);
   }
 
-  function getType(e: any) {
+  function getType(e: React.ChangeEvent<HTMLSelectElement>) {
     const type = e.target.value;
 
     setStateType(type);
   }
 
-  function getDescriptor(e: any) {
+  function getDescriptor(e: React.ChangeEvent<HTMLSelectElement>) {
     const descriptor = e.target.value;
 
     setStateDescriptor(descriptor);
   }
 
-  function getUserInput(e: any) {
+  function getUserInput(e: React.FormEvent) {
     e.preventDefault();
 
-    console.log(stateFoci);
-    console.log(stateDescriptor);
-    console.log(stateType);
+    setCharacterInfo({
+      ...characterInfo,
+      type: stateType,
+      descriptor: stateDescriptor,
+      foci: stateFoci,
+    });
   }
 
   return (
@@ -85,7 +92,6 @@ function Generator() {
           })}
         </select>
 
-        {/* <button onClick={(e) => getUserInput(e)}>Generate</button> */}
         <input className="submit-button" type="submit" value="Generate" />
       </form>
     </div>

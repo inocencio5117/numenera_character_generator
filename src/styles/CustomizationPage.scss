@@ -10,4 +10,58 @@
 
   height: 26rem;
   width: 40rem;
+
+  .character-phrase {
+    font-size: 1.15rem;
+    font-weight: bolder;
+
+    margin-bottom: 1rem;
+  }
+
+  .pools-container {
+    display: flex;
+    flex-direction: column;
+
+    .header-pools {
+      font-size: 1rem;
+      font-weight: bolder;
+
+      margin-bottom: 1rem;
+    }
+
+    // .might,
+    // .speed,
+    // .intellect {
+    //   background-color: red;
+    // }
+
+    .buttons {
+      margin: 0rem 0.5rem;
+
+      > button {
+        margin: 0rem 0.25rem;
+      }
+    }
+  }
+
+  // .edge-container {
+  //   display: flex;
+  //   flex-direction: column;
+
+  //   .header-pools {
+  //     font-size: 1rem;
+  //     font-weight: bolder;
+
+  //     margin-bottom: 1rem;
+  //   }
+  //   .might,
+  //   .speed,
+  //   .intellect {
+  //     background-color: red;
+
+  //     .buttons {
+  //       margin: 0rem 0.5rem;
+  //     }
+  //   }
+  // }
 }
