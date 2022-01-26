@@ -12,16 +12,19 @@
 
   border-radius: 15px;
 
-  background-color: white;
+  background-color: rgba(104, 104, 104, 0.25);
+  color: #fff;
 
   height: 26rem;
-  width: 40rem;
+  width: 80rem;
 
   form {
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
-    flex-direction: column;
+    // flex-direction: column;
+
+    width: 75%;
 
     #descriptor,
     #type,

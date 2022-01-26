@@ -48,8 +48,8 @@ function Generator() {
         <h1>Numenera Character Creator</h1>
       </header>
 
-      <b>I am a</b>
       <form onSubmit={(e) => getUserInput(e)}>
+        <b>I am a</b>
         <select
           name="descriptor"
           id="descriptor"

@@ -7,7 +7,7 @@ import "../styles/CustomizationPage.scss";
 import { CharacterContext } from "../contexts/CharacterContext";
 
 function CustomizationPage() {
-  function handleStatsPoints(operation: string) {
+  function handleStatsPoints(operation: string): void {
     if (operation === "add") {
       setPointsValue(pointsValue - 1);
     }
@@ -17,7 +17,9 @@ function CustomizationPage() {
     }
   }
 
-  function buttonStatControllerSubtract(stat: string): any {
+  function buttonStatControllerSubtract(
+    stat: string
+  ): React.SetStateAction<number> | void {
     if (pointsValue === 6) return;
 
     switch (stat) {
@@ -49,7 +51,9 @@ function CustomizationPage() {
     }
   }
 
-  function buttonStatControllerAdd(stat: string): any {
+  function buttonStatControllerAdd(
+    stat: string
+  ): React.SetStateAction<number> | void {
     if (pointsValue === 0) return;
 
     switch (stat) {
@@ -109,6 +113,25 @@ function CustomizationPage() {
     setPointsValue(types[typeIndex].stats.points);
   }, [typeIndex]);
 
+  // edge values
+  const [mightEdgeValue, setMightEdgeValue] = useState<number | undefined>(
+    types[typeIndex].edges.might
+  );
+  const [speedEdgeValue, setSpeedEdgeValue] = useState<number | undefined>(
+    types[typeIndex].edges.speed
+  );
+  const [intellectEdgeValue, setIntellectEdgeValue] = useState<
+    number | undefined
+  >(types[typeIndex].edges.intellect);
+
+  useEffect(() => {
+    setMightEdgeValue(types[typeIndex].edges.might);
+    setSpeedEdgeValue(types[typeIndex].edges.speed);
+    setIntellectEdgeValue(types[typeIndex].edges.intellect);
+  }, [typeIndex]);
+
+  console.log(intellectEdgeValue);
+
   return (
     <div className="customization-page">
       <span className="character-phrase">
@@ -159,6 +182,35 @@ function CustomizationPage() {
 
             {pointsValue}
           </span>
+        </span>
+      </div>
+
+      {/* edge */}
+
+      <div className="edge-container">
+        <span className="header-edge">Edge</span>
+
+        <span className="edges">
+          {intellectEdgeValue !== undefined ? (
+            <span className="edge-button">
+              <b>Might</b>
+              {mightEdgeValue}
+            </span>
+          ) : null}
+
+          {intellectEdgeValue !== undefined ? (
+            <span className="edge-button">
+              <b>Speed</b>
+              {speedEdgeValue}
+            </span>
+          ) : null}
+
+          {intellectEdgeValue !== undefined ? (
+            <span className="edge-button">
+              <b>Intellect</b>
+              {intellectEdgeValue}
+            </span>
+          ) : null}
         </span>
       </div>
     </div>
