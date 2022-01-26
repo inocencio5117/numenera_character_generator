@@ -1,36 +1,113 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 
-import { descriptors, foci, types } from "../data/character_data";
+import { types } from "../data/character_data";
 
 import "../styles/CustomizationPage.scss";
 
 import { CharacterContext } from "../contexts/CharacterContext";
 
 function CustomizationPage() {
+  function handleStatsPoints(operation: string) {
+    if (operation === "add") {
+      setPointsValue(pointsValue - 1);
+    }
+
+    if (operation === "sub") {
+      setPointsValue(pointsValue + 1);
+    }
+  }
+
+  function buttonStatControllerSubtract(stat: string): any {
+    if (pointsValue === 6) return;
+
+    switch (stat) {
+      case "might": {
+        handleStatsPoints("sub");
+        return setMightValue(
+          mightValue === types[typeIndex].stats.might
+            ? types[typeIndex].stats.might
+            : mightValue - 1
+        );
+      }
+
+      case "speed": {
+        handleStatsPoints("sub");
+        return setSpeedValue(
+          speedValue === types[typeIndex].stats.speed
+            ? types[typeIndex].stats.speed
+            : speedValue - 1
+        );
+      }
+
+      case "intellect":
+        handleStatsPoints("sub");
+        return setIntellectValue(
+          intellectValue === types[typeIndex].stats.intellect
+            ? types[typeIndex].stats.intellect
+            : intellectValue - 1
+        );
+    }
+  }
+
+  function buttonStatControllerAdd(stat: string): any {
+    if (pointsValue === 0) return;
+
+    switch (stat) {
+      case "might": {
+        handleStatsPoints("add");
+        return setMightValue(mightValue + 1);
+      }
+
+      case "speed": {
+        handleStatsPoints("add");
+        return setSpeedValue(speedValue + 1);
+      }
+
+      case "intellect": {
+        handleStatsPoints("add");
+        return setIntellectValue(intellectValue + 1);
+      }
+    }
+  }
+
   // context
   const { characterInfo } = useContext(CharacterContext);
 
   // character data
-  const descriptorData = descriptors.find(
-    (desc) => desc.name === characterInfo.descriptor
-  );
+  // const descriptorData = descriptors.find(
+  //   (desc) => desc.name === characterInfo.descriptor
+  // );
 
-  const fociData = foci.find((foci) => foci.name === characterInfo.foci);
+  // const fociData = foci.find((foci) => foci.name === characterInfo.foci);
 
-  const typeData = types.find((type) => type.name === characterInfo.type);
+  const typeIndex =
+    characterInfo.type !== ""
+      ? types.findIndex((el) => el.name === characterInfo.type)
+      : 2;
 
   // pool values
   const [mightValue, setMightValue] = useState<number>(
-    typeData?.stats.might as number
-  );
-  const [speedValue, setSpeedValue] = useState<number>(
-    typeData?.stats.speed as number
-  );
-  const [intellectValue, setIntellectValue] = useState<number>(
-    typeData?.stats.intellect as number
+    types[typeIndex].stats.might as number
   );
 
-  console.log(typeData?.stats.intellect);
+  const [speedValue, setSpeedValue] = useState<number>(
+    types[typeIndex].stats.speed as number
+  );
+
+  const [intellectValue, setIntellectValue] = useState<number>(
+    types[typeIndex].stats.intellect as number
+  );
+
+  const [pointsValue, setPointsValue] = useState<number>(
+    types[typeIndex].stats.points as number
+  );
+
+  useEffect(() => {
+    setMightValue(types[typeIndex].stats.might);
+    setSpeedValue(types[typeIndex].stats.speed);
+    setIntellectValue(types[typeIndex].stats.intellect);
+    setPointsValue(types[typeIndex].stats.points);
+  }, [typeIndex]);
 
   return (
     <div className="customization-page">
@@ -47,8 +124,10 @@ function CustomizationPage() {
 
           <span className="pool-button">
             {mightValue}
-            <button onClick={() => setMightValue(mightValue - 1)}>-</button>
-            <button onClick={() => setMightValue(mightValue + 1)}>+</button>
+            <button onClick={() => buttonStatControllerSubtract("might")}>
+              -
+            </button>
+            <button onClick={() => buttonStatControllerAdd("might")}>+</button>
           </span>
         </span>
         <span className="might">
@@ -56,8 +135,10 @@ function CustomizationPage() {
 
           <span className="pool-button">
             {speedValue}
-            <button onClick={() => setSpeedValue(speedValue - 1)}>-</button>
-            <button onClick={() => setSpeedValue(speedValue + 1)}>+</button>
+            <button onClick={() => buttonStatControllerSubtract("speed")}>
+              -
+            </button>
+            <button onClick={() => buttonStatControllerAdd("speed")}>+</button>
           </span>
         </span>
         <span className="intellect">
@@ -65,12 +146,18 @@ function CustomizationPage() {
 
           <span className="pool-button">
             {intellectValue}
-            <button onClick={() => setIntellectValue(intellectValue - 1)}>
+            <button onClick={() => buttonStatControllerSubtract("intellect")}>
               -
             </button>
-            <button onClick={() => setIntellectValue(intellectValue + 1)}>
+            <button onClick={() => buttonStatControllerAdd("intellect")}>
               +
             </button>
+          </span>
+
+          <span className="points">
+            <b>Points</b>
+
+            {pointsValue}
           </span>
         </span>
       </div>
