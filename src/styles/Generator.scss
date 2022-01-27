@@ -1,9 +1,6 @@
 .generator {
-  header {
-    margin-bottom: 1rem;
-  }
-
   margin: 1.5rem 0rem;
+  padding: 2rem 0rem;
 
   display: flex;
   flex-direction: column;
@@ -15,7 +12,8 @@
   background-color: rgba(104, 104, 104, 0.25);
   color: #fff;
 
-  height: 26rem;
+  max-height: 26rem;
+  height: auto;
   width: 80rem;
 
   form {
@@ -26,11 +24,18 @@
 
     width: 75%;
 
+    > b {
+      font-size: 1.5rem;
+      font-weight: medium;
+    }
+
     #descriptor,
     #type,
     #foci {
       margin: 1rem 0rem;
       padding: 0.5rem;
+
+      font-size: 1rem;
 
       background-color: rgb(114, 114, 114);
       border: none;

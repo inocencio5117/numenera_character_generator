@@ -50,6 +50,7 @@ function Generator() {
 
       <form onSubmit={(e) => getUserInput(e)}>
         <b>I am a</b>
+
         <select
           name="descriptor"
           id="descriptor"

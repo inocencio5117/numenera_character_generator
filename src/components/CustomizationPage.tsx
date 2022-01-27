@@ -9,6 +9,13 @@ import { CharacterContext } from "../contexts/CharacterContext";
 type edgeType = number | undefined;
 
 function CustomizationPage() {
+  function resetPoolsPoint() {
+    setMightValue(types[characterIndex].stats.might);
+    setIntellectValue(types[characterIndex].stats.intellect);
+    setSpeedValue(types[characterIndex].stats.speed);
+    setPointsValue(types[characterIndex].stats.points);
+  }
+
   function handleStatsPoints(operation: string): void {
     if (operation === "add") {
       setPointsValue(pointsValue - 1);
@@ -139,8 +146,8 @@ function CustomizationPage() {
         <b>{characterInfo.foci}</b>
       </p>
 
+      <span className="pools-title">Pools</span>
       <div className="pools-container">
-        {/* <span className="pools-title">Pools</span> */}
         <div className="pools-wrapper">
           <span>Might</span>
 
@@ -208,6 +215,12 @@ function CustomizationPage() {
           <span>Points</span>
 
           <span>{pointsValue}</span>
+          <button
+            className="pools-reset-button"
+            onClick={() => resetPoolsPoint()}
+          >
+            Reset
+          </button>
         </div>
       </div>
 
@@ -216,20 +229,20 @@ function CustomizationPage() {
       <div className="edges-container">
         <span className="edges-title">Edge</span>
 
-        <span className="edges">
+        <span className="edges-wrapper">
           <span className="edges-children">
             <span>Might</span>
-            <p>{mightEdgeValue}</p>
+            <span>{mightEdgeValue}</span>
           </span>
 
           <span className="edges-children">
             <span>Speed</span>
-            <p>{speedEdgeValue}</p>
+            <span>{speedEdgeValue}</span>
           </span>
 
           <span className="edges-children">
             <span>Intellect</span>
-            <p>{intellectEdgeValue}</p>
+            <span>{intellectEdgeValue}</span>
           </span>
         </span>
       </div>
