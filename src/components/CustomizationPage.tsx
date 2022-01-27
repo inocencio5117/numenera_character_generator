@@ -9,11 +9,36 @@ import { CharacterContext } from "../contexts/CharacterContext";
 type edgeType = number | undefined;
 
 function CustomizationPage() {
+  function addEdgeValueForJack(stat: string) {
+    if (
+      intellectEdgeValue === 1 ||
+      mightEdgeValue === 1 ||
+      speedEdgeValue === 1
+    )
+      return;
+
+    if (characterInfo.type === "Jack") {
+      switch (stat) {
+        case "might":
+          return setMightEdgeValue(1);
+
+        case "speed":
+          return setSpeedEdgeValue(1);
+
+        case "intellect":
+          return setIntellectEdgeValue(1);
+      }
+    }
+  }
+
   function resetPoolsPoint() {
     setMightValue(types[characterIndex].stats.might);
     setIntellectValue(types[characterIndex].stats.intellect);
     setSpeedValue(types[characterIndex].stats.speed);
     setPointsValue(types[characterIndex].stats.points);
+    setIntellectEdgeValue(types[characterIndex].edges.intellect);
+    setMightEdgeValue(types[characterIndex].edges.might);
+    setSpeedEdgeValue(types[characterIndex].edges.speed);
   }
 
   function handleStatsPoints(operation: string): void {
@@ -233,18 +258,60 @@ function CustomizationPage() {
           <span className="edges-children">
             <span>Might</span>
             <span>{mightEdgeValue}</span>
+            {characterInfo.type === "Jack" ? (
+              <button
+                className="edge-button"
+                onClick={() => addEdgeValueForJack("might")}
+              >
+                +
+              </button>
+            ) : null}
           </span>
 
           <span className="edges-children">
             <span>Speed</span>
             <span>{speedEdgeValue}</span>
+            {characterInfo.type === "Jack" ? (
+              <button
+                className="edge-button"
+                onClick={() => addEdgeValueForJack("speed")}
+              >
+                +
+              </button>
+            ) : null}
           </span>
 
           <span className="edges-children">
             <span>Intellect</span>
             <span>{intellectEdgeValue}</span>
+            {characterInfo.type === "Jack" ? (
+              <button
+                className="edge-button"
+                onClick={() => addEdgeValueForJack("intellect")}
+              >
+                +
+              </button>
+            ) : null}
           </span>
         </span>
+      </div>
+
+      <div className="skills-container">
+        <span className="skills-title">Skills</span>
+
+        <div className="skills-wrapper">
+          <span className="skills-children">
+            <span>Practiced</span>
+          </span>
+
+          <span className="skills-children">
+            <span>Trained</span>
+          </span>
+
+          <span className="skills-children">
+            <span>Inabilities</span>
+          </span>
+        </div>
       </div>
     </div>
   );
