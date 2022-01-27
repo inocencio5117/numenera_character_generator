@@ -32,9 +32,17 @@ function CustomizationPage() {
   }
 
   function resetPoolsPoint() {
-    setMightValue(types[characterIndex].stats.might);
-    setIntellectValue(types[characterIndex].stats.intellect);
-    setSpeedValue(types[characterIndex].stats.speed);
+    setMightValue(
+      types[characterIndex].stats.might + mightFromDescriptor + mightFromFocus
+    );
+    setSpeedValue(
+      types[characterIndex].stats.speed + speedFromDescriptor + speedFromFocus
+    );
+    setIntellectValue(
+      types[characterIndex].stats.intellect +
+        intellectFromDescriptor +
+        intellectFromFocus
+    );
     setPointsValue(types[characterIndex].stats.points);
     setIntellectEdgeValue(types[characterIndex].edges.intellect);
     setMightEdgeValue(types[characterIndex].edges.might);
@@ -140,12 +148,39 @@ function CustomizationPage() {
     types[characterIndex].stats.points as number
   );
 
+  // descriptor
+  const intellectFromDescriptor = descriptorData?.stats?.intellect || 0;
+  const speedFromDescriptor = descriptorData?.stats?.speed || 0;
+  const mightFromDescriptor = descriptorData?.stats?.might || 0;
+
+  // focus
+  const intellectFromFocus = fociData?.stats?.intellect || 0;
+  const speedFromFocus = fociData?.stats?.speed || 0;
+  const mightFromFocus = fociData?.stats?.might || 0;
+
+  // Loads all values
   useEffect(() => {
-    setMightValue(types[characterIndex].stats.might);
-    setSpeedValue(types[characterIndex].stats.speed);
-    setIntellectValue(types[characterIndex].stats.intellect);
+    setMightValue(
+      types[characterIndex].stats.might + mightFromDescriptor + mightFromFocus
+    );
+    setSpeedValue(
+      types[characterIndex].stats.speed + speedFromDescriptor + speedFromFocus
+    );
+    setIntellectValue(
+      types[characterIndex].stats.intellect +
+        intellectFromDescriptor +
+        intellectFromFocus
+    );
     setPointsValue(types[characterIndex].stats.points);
-  }, [characterIndex]);
+  }, [
+    characterIndex,
+    intellectFromDescriptor,
+    intellectFromFocus,
+    mightFromDescriptor,
+    mightFromFocus,
+    speedFromDescriptor,
+    speedFromFocus,
+  ]);
 
   // edge values
   const [mightEdgeValue, setMightEdgeValue] = useState<edgeType>(

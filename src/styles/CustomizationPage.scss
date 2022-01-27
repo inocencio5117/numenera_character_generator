@@ -188,17 +188,11 @@
 
         margin: 1rem 1.5rem;
 
-        max-width: 33%;
+        max-width: 40%;
 
-        > ul {
-          // display: flex;
-          // justify-content: flex-start;
-          // // align-items: flex-start;
-          // flex-direction: column;
-
-          li {
-            list-style: square;
-          }
+        > ul li {
+          list-style: square;
+          margin-bottom: 0.75rem;
         }
       }
     }

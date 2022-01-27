@@ -392,7 +392,8 @@ const types = [
     ],
     skills: {
       trained: [
-        "Persuasion, and one more from the following: negotiation, deceiving, public speaking, intimidation, or seeing through deception",
+        "Persuasion",
+        "Choose one more from the following: negotiation, deceiving, public speaking, intimidation, or seeing through deception",
       ],
       inability: [
         "Crafting numenera",
@@ -440,7 +441,8 @@ const types = [
     ],
     skills: {
       trained: [
-        "Crafting numenera, and in addition one of the following that you are not trained in: Salvaging numenera, understanding numenera, engineering, woodcrafting, armoring, weaponsmithing, or another craft skill ",
+        "Crafting numenera",
+        "In addition, choose one of the following that you are not trained in: Salvaging numenera, understanding numenera, engineering, woodcrafting, armoring, weaponsmithing, or another craft skill ",
       ],
       inability: ["Salvaging numenera", "Understanding numenera"],
       practiced: ["Light Weapons"],
@@ -486,7 +488,8 @@ const types = [
     ],
     skills: {
       trained: [
-        "Salvaging numenera, and in addition one of the following that you are not trained in: navigation, perception, sensing danger, creature knowledge, initiative, peacefully opening communications with strangers or tracking",
+        "Salvaging numenera",
+        "In addition, choose one of the following that you are not trained in: navigation, perception, sensing danger, creature knowledge, initiative, peacefully opening communications with strangers or tracking",
       ],
       inability: ["Crafting numenera", "Understanding numenera"],
       practiced: ["Light and Medium Weapons"],
