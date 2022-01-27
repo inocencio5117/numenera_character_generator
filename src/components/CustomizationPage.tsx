@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 
-import { types } from "../data/character_data";
+import { types, foci, descriptors } from "../data/character_data";
 
 import "../styles/CustomizationPage.scss";
 
@@ -112,11 +112,11 @@ function CustomizationPage() {
   const { characterInfo } = useContext(CharacterContext);
 
   // character data
-  // const descriptorData = descriptors.find(
-  //   (desc) => desc.name === characterInfo.descriptor
-  // );
+  const descriptorData = descriptors.find(
+    (desc) => desc.name === characterInfo.descriptor
+  );
 
-  // const fociData = foci.find((foci) => foci.name === characterInfo.foci);
+  const fociData = foci.find((foci) => foci.name === characterInfo.foci);
 
   const characterIndex =
     characterInfo.type !== ""
@@ -296,20 +296,48 @@ function CustomizationPage() {
         </span>
       </div>
 
+      {/* Skills */}
       <div className="skills-container">
         <span className="skills-title">Skills</span>
 
         <div className="skills-wrapper">
           <span className="skills-children">
             <span>Practiced</span>
+
+            <ul>
+              {types[characterIndex].skills.practiced.map((practiced) => {
+                return <li>{practiced}</li>;
+              })}
+            </ul>
           </span>
 
           <span className="skills-children">
             <span>Trained</span>
+
+            <ul>
+              {types[characterIndex].skills.trained.map((trained) => {
+                return <li>{trained}</li>;
+              })}
+              {fociData?.skills?.trained.map((trained) => {
+                return <li>{trained}</li>;
+              })}
+              {descriptorData?.skills?.trained.map((trained) => {
+                return <li>{trained}</li>;
+              })}
+            </ul>
           </span>
 
           <span className="skills-children">
             <span>Inabilities</span>
+
+            <ul>
+              {types[characterIndex].skills.inability?.map((inability) => {
+                return <li>{inability}</li>;
+              })}
+              {descriptorData?.skills?.inability?.map((inability) => {
+                return <li>{inability}</li>;
+              })}
+            </ul>
           </span>
         </div>
       </div>
