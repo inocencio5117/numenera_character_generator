@@ -365,6 +365,52 @@ const types = [
     cyphers: ["Two cyphers (chosen for you by the GM)"],
     oddities: ["One oddity (chosen for you by the GM)"],
   },
+  {
+    name: "Arkhus",
+    sourcebook: "Numenera Destiny",
+    page: 7,
+    stats: {
+      might: 8,
+      speed: 9,
+      intellect: 11,
+      points: 6,
+    },
+    sources: [{ sourcebook: "Players Guide", page: 28 }],
+    edges: {
+      intellect: 1,
+    },
+    shins: 9,
+    cypherlimit: 2,
+    abilities: [
+      "Anectode",
+      "Babel",
+      "Connection With an Organization",
+      "Goad",
+      "Powerful Rhetoric",
+      "Trained Without Armor",
+      "Understanding",
+    ],
+    skills: {
+      trained: [
+        "Persuasion, and one more from the following: negotiation, deceiving, public speaking, intimidation, or seeing through deception",
+      ],
+      inability: [
+        "Crafting numenera",
+        "Salvaging numenera",
+        "Understanding numenera",
+      ],
+      practiced: ["Light and Medium Weapons"],
+    },
+    equipment: [
+      "Clothing",
+      "Two weapons",
+      "Light Armor",
+      "An explorers pack",
+      "A pack of light tools",
+    ],
+    cyphers: ["Two cyphers (chosen for you by the GM)"],
+    oddities: ["One oddity (chosen for you by the GM)"],
+  },
 ];
 
 const foci = [

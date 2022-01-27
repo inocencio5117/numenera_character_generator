@@ -45,7 +45,7 @@ function Generator() {
   return (
     <div className="generator">
       <header>
-        <h1>Numenera Character Creator</h1>
+        <h1>Numenera Character Generator</h1>
       </header>
 
       <form onSubmit={(e) => getUserInput(e)}>

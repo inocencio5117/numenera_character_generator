@@ -6,6 +6,8 @@ import "../styles/CustomizationPage.scss";
 
 import { CharacterContext } from "../contexts/CharacterContext";
 
+type edgeType = number | undefined;
+
 function CustomizationPage() {
   function handleStatsPoints(operation: string): void {
     if (operation === "add") {
@@ -26,27 +28,27 @@ function CustomizationPage() {
       case "might": {
         handleStatsPoints("sub");
         return setMightValue(
-          mightValue === types[typeIndex].stats.might
-            ? types[typeIndex].stats.might
-            : mightValue - 1
+          mightPoolValue === types[characterIndex].stats.might
+            ? types[characterIndex].stats.might
+            : mightPoolValue - 1
         );
       }
 
       case "speed": {
         handleStatsPoints("sub");
         return setSpeedValue(
-          speedValue === types[typeIndex].stats.speed
-            ? types[typeIndex].stats.speed
-            : speedValue - 1
+          speedPoolValue === types[characterIndex].stats.speed
+            ? types[characterIndex].stats.speed
+            : speedPoolValue - 1
         );
       }
 
       case "intellect":
         handleStatsPoints("sub");
         return setIntellectValue(
-          intellectValue === types[typeIndex].stats.intellect
-            ? types[typeIndex].stats.intellect
-            : intellectValue - 1
+          intellectPoolValue === types[characterIndex].stats.intellect
+            ? types[characterIndex].stats.intellect
+            : intellectPoolValue - 1
         );
     }
   }
@@ -59,17 +61,17 @@ function CustomizationPage() {
     switch (stat) {
       case "might": {
         handleStatsPoints("add");
-        return setMightValue(mightValue + 1);
+        return setMightValue(mightPoolValue + 1);
       }
 
       case "speed": {
         handleStatsPoints("add");
-        return setSpeedValue(speedValue + 1);
+        return setSpeedValue(speedPoolValue + 1);
       }
 
       case "intellect": {
         handleStatsPoints("add");
-        return setIntellectValue(intellectValue + 1);
+        return setIntellectValue(intellectPoolValue + 1);
       }
     }
   }
@@ -84,133 +86,151 @@ function CustomizationPage() {
 
   // const fociData = foci.find((foci) => foci.name === characterInfo.foci);
 
-  const typeIndex =
+  const characterIndex =
     characterInfo.type !== ""
       ? types.findIndex((el) => el.name === characterInfo.type)
       : 2;
 
   // pool values
-  const [mightValue, setMightValue] = useState<number>(
-    types[typeIndex].stats.might as number
+  const [mightPoolValue, setMightValue] = useState<number>(
+    types[characterIndex].stats.might as number
   );
 
-  const [speedValue, setSpeedValue] = useState<number>(
-    types[typeIndex].stats.speed as number
+  const [speedPoolValue, setSpeedValue] = useState<number>(
+    types[characterIndex].stats.speed as number
   );
 
-  const [intellectValue, setIntellectValue] = useState<number>(
-    types[typeIndex].stats.intellect as number
+  const [intellectPoolValue, setIntellectValue] = useState<number>(
+    types[characterIndex].stats.intellect as number
   );
 
   const [pointsValue, setPointsValue] = useState<number>(
-    types[typeIndex].stats.points as number
+    types[characterIndex].stats.points as number
   );
 
   useEffect(() => {
-    setMightValue(types[typeIndex].stats.might);
-    setSpeedValue(types[typeIndex].stats.speed);
-    setIntellectValue(types[typeIndex].stats.intellect);
-    setPointsValue(types[typeIndex].stats.points);
-  }, [typeIndex]);
+    setMightValue(types[characterIndex].stats.might);
+    setSpeedValue(types[characterIndex].stats.speed);
+    setIntellectValue(types[characterIndex].stats.intellect);
+    setPointsValue(types[characterIndex].stats.points);
+  }, [characterIndex]);
 
   // edge values
-  const [mightEdgeValue, setMightEdgeValue] = useState<number | undefined>(
-    types[typeIndex].edges.might
+  const [mightEdgeValue, setMightEdgeValue] = useState<edgeType>(
+    types[characterIndex].edges.might
   );
-  const [speedEdgeValue, setSpeedEdgeValue] = useState<number | undefined>(
-    types[typeIndex].edges.speed
+  const [speedEdgeValue, setSpeedEdgeValue] = useState<edgeType>(
+    types[characterIndex].edges.speed
   );
-  const [intellectEdgeValue, setIntellectEdgeValue] = useState<
-    number | undefined
-  >(types[typeIndex].edges.intellect);
+  const [intellectEdgeValue, setIntellectEdgeValue] = useState<edgeType>(
+    types[characterIndex].edges.intellect
+  );
 
   useEffect(() => {
-    setMightEdgeValue(types[typeIndex].edges.might);
-    setSpeedEdgeValue(types[typeIndex].edges.speed);
-    setIntellectEdgeValue(types[typeIndex].edges.intellect);
-  }, [typeIndex]);
-
-  console.log(intellectEdgeValue);
+    setMightEdgeValue(types[characterIndex].edges.might);
+    setSpeedEdgeValue(types[characterIndex].edges.speed);
+    setIntellectEdgeValue(types[characterIndex].edges.intellect);
+  }, [characterIndex]);
 
   return (
     <div className="customization-page">
-      <span className="character-phrase">
-        I am a {characterInfo.descriptor} {characterInfo.type} who{" "}
-        {characterInfo.foci}
-      </span>
+      <p className="character-phrase">
+        I am a <b>{characterInfo.descriptor}</b> <b>{characterInfo.type}</b> who{" "}
+        <b>{characterInfo.foci}</b>
+      </p>
 
       <div className="pools-container">
-        <span className="header-pools">Pools</span>
+        {/* <span className="pools-title">Pools</span> */}
+        <div className="pools-wrapper">
+          <span>Might</span>
 
-        <span className="might">
-          <b>Might</b>
+          <span>{mightPoolValue}</span>
 
-          <span className="pool-button">
-            {mightValue}
-            <button onClick={() => buttonStatControllerSubtract("might")}>
+          <div>
+            <button
+              className="pools-button"
+              onClick={() => buttonStatControllerSubtract("might")}
+            >
               -
             </button>
-            <button onClick={() => buttonStatControllerAdd("might")}>+</button>
-          </span>
-        </span>
-        <span className="might">
-          <b>Speed</b>
-
-          <span className="pool-button">
-            {speedValue}
-            <button onClick={() => buttonStatControllerSubtract("speed")}>
-              -
-            </button>
-            <button onClick={() => buttonStatControllerAdd("speed")}>+</button>
-          </span>
-        </span>
-        <span className="intellect">
-          <b>Intellect</b>
-
-          <span className="pool-button">
-            {intellectValue}
-            <button onClick={() => buttonStatControllerSubtract("intellect")}>
-              -
-            </button>
-            <button onClick={() => buttonStatControllerAdd("intellect")}>
+            <button
+              className="pools-button"
+              onClick={() => buttonStatControllerAdd("might")}
+            >
               +
             </button>
-          </span>
+          </div>
+        </div>
 
-          <span className="points">
-            <b>Points</b>
+        <div className="pools-wrapper">
+          <span>Speed</span>
 
-            {pointsValue}
-          </span>
-        </span>
+          <span>{speedPoolValue}</span>
+
+          <div>
+            <button
+              className="pools-button"
+              onClick={() => buttonStatControllerSubtract("speed")}
+            >
+              -
+            </button>
+            <button
+              className="pools-button"
+              onClick={() => buttonStatControllerAdd("speed")}
+            >
+              +
+            </button>
+          </div>
+        </div>
+
+        <div className="pools-wrapper">
+          <span>Intellect</span>
+
+          <span>{intellectPoolValue}</span>
+
+          <div>
+            <button
+              className="pools-button"
+              onClick={() => buttonStatControllerSubtract("intellect")}
+            >
+              -
+            </button>
+            <button
+              className="pools-button"
+              onClick={() => buttonStatControllerAdd("intellect")}
+            >
+              +
+            </button>
+          </div>
+        </div>
+
+        <div className="pools-wrapper">
+          <span>Points</span>
+
+          <span>{pointsValue}</span>
+        </div>
       </div>
 
       {/* edge */}
 
-      <div className="edge-container">
-        <span className="header-edge">Edge</span>
+      <div className="edges-container">
+        <span className="edges-title">Edge</span>
 
         <span className="edges">
-          {intellectEdgeValue !== undefined ? (
-            <span className="edge-button">
-              <b>Might</b>
-              {mightEdgeValue}
-            </span>
-          ) : null}
+          <span className="edges-children">
+            <span>Might</span>
+            <p>{mightEdgeValue}</p>
+          </span>
 
-          {intellectEdgeValue !== undefined ? (
-            <span className="edge-button">
-              <b>Speed</b>
-              {speedEdgeValue}
-            </span>
-          ) : null}
+          <span className="edges-children">
+            <span>Speed</span>
+            <p>{speedEdgeValue}</p>
+          </span>
 
-          {intellectEdgeValue !== undefined ? (
-            <span className="edge-button">
-              <b>Intellect</b>
-              {intellectEdgeValue}
-            </span>
-          ) : null}
+          <span className="edges-children">
+            <span>Intellect</span>
+            <p>{intellectEdgeValue}</p>
+          </span>
         </span>
       </div>
     </div>
