@@ -214,7 +214,7 @@ $pale-silver: #c5c0b1;
 
         margin: 1rem 1.5rem;
 
-        max-width: 40%;
+        max-width: 45%;
 
         > span {
           font-weight: bold;
@@ -224,6 +224,44 @@ $pale-silver: #c5c0b1;
           list-style: square;
           margin-bottom: 0.75rem;
         }
+      }
+    }
+  }
+
+  @media (max-width: 1325px) {
+    width: 95%;
+
+    .character-phrase {
+      font-size: 1.75rem;
+    }
+  }
+
+  @media (max-width: 810px) {
+    .character-phrase {
+      font-size: 1.25rem;
+
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+
+      > b {
+        margin: 0rem 0.5rem;
+      }
+    }
+
+    .pools-container {
+      flex-wrap: wrap;
+
+      .pools-wrapper {
+        margin: 1rem 2rem;
+      }
+    }
+
+    .skills-children {
+      min-width: 85%;
+
+      > ul {
+        align-self: flex-start;
       }
     }
   }

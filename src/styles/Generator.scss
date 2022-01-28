@@ -20,6 +20,23 @@ $alice: #f2fafc;
   height: auto;
   width: 80rem;
 
+  @media (max-width: 1325px) {
+    height: 100%;
+    width: 95%;
+
+    h1 {
+      font-size: 1.5rem;
+    }
+  }
+
+  @media (max-width: 810px) {
+    height: 100%;
+
+    h1 {
+      font-size: 1.4rem;
+    }
+  }
+
   form {
     display: flex;
     justify-content: space-evenly;
@@ -80,6 +97,26 @@ $alice: #f2fafc;
       &:hover {
         background-color: $alice;
         color: #333;
+      }
+    }
+
+    @media (max-width: 1325px) {
+      flex-direction: column;
+
+      #descriptor,
+      #type,
+      #foci {
+        width: 65%;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 810px) {
+      #descriptor,
+      #type,
+      #foci {
+        width: 100%;
+        text-align: center;
       }
     }
   }
