@@ -9,6 +9,7 @@ import { CharacterContext } from "../contexts/CharacterContext";
 type edgeType = number | undefined;
 
 function CustomizationPage() {
+  // adds a button underneath the edges values when jack the jack type is chosen
   function addEdgeValueForJack(stat: string) {
     if (
       intellectEdgeValue === 1 ||
@@ -31,6 +32,7 @@ function CustomizationPage() {
     }
   }
 
+  // resets the pool points that were distributed in the pools
   function resetPoolsPoint() {
     setMightValue(
       types[characterIndex].stats.might + mightFromDescriptor + mightFromFocus
@@ -49,6 +51,7 @@ function CustomizationPage() {
     setSpeedEdgeValue(types[characterIndex].edges.speed);
   }
 
+  // handle the distribution of stats updating the points value
   function handleStatsPoints(operation: string): void {
     if (operation === "add") {
       setPointsValue(pointsValue - 1);
@@ -59,6 +62,7 @@ function CustomizationPage() {
     }
   }
 
+  // handle the click on a - button in the stats pool
   function buttonStatControllerSubtract(
     stat: string
   ): React.SetStateAction<number> | void {
@@ -93,6 +97,7 @@ function CustomizationPage() {
     }
   }
 
+  // handle the click on a + button in the stats pool
   function buttonStatControllerAdd(
     stat: string
   ): React.SetStateAction<number> | void {
@@ -148,17 +153,17 @@ function CustomizationPage() {
     types[characterIndex].stats.points as number
   );
 
-  // descriptor
+  // descriptor stats values
   const intellectFromDescriptor = descriptorData?.stats?.intellect || 0;
   const speedFromDescriptor = descriptorData?.stats?.speed || 0;
   const mightFromDescriptor = descriptorData?.stats?.might || 0;
 
-  // focus
+  // focus stats values
   const intellectFromFocus = fociData?.stats?.intellect || 0;
   const speedFromFocus = fociData?.stats?.speed || 0;
   const mightFromFocus = fociData?.stats?.might || 0;
 
-  // Loads all values
+  // Loads all stats values
   useEffect(() => {
     setMightValue(
       types[characterIndex].stats.might + mightFromDescriptor + mightFromFocus
@@ -193,6 +198,7 @@ function CustomizationPage() {
     types[characterIndex].edges.intellect
   );
 
+  // loads all edge values
   useEffect(() => {
     setMightEdgeValue(types[characterIndex].edges.might);
     setSpeedEdgeValue(types[characterIndex].edges.speed);
