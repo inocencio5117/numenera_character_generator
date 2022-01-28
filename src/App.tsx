@@ -14,6 +14,8 @@ function App() {
       <div className="main-container">
         <Generator />
         <CustomizationPage />
+
+        <span className="trademark">TM and © 2021 Monte Cook Games, LLC.</span>
       </div>
     </CharacterContextProvider>
   );

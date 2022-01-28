@@ -1,3 +1,7 @@
+$prussian: #1a384c;
+$indigo: #29496f;
+$alice: #f2fafc;
+
 .generator {
   margin: 1.5rem 0rem;
   padding: 2rem 0rem;
@@ -9,7 +13,7 @@
 
   border-radius: 15px;
 
-  background-color: rgba(104, 104, 104, 0.25);
+  background-color: rgba(158, 158, 158, 0.25);
   color: #fff;
 
   max-height: 26rem;
@@ -33,29 +37,48 @@
     #type,
     #foci {
       margin: 1rem 0rem;
-      padding: 0.5rem;
+      padding: 0.75rem 0rem;
 
       font-size: 1rem;
 
-      background-color: rgb(114, 114, 114);
-      border: none;
-      border-radius: 8px;
+      // background-color: rgb(114, 114, 114);
+      background-color: transparent;
+
+      font-weight: bold;
+      font-size: 1.1rem;
+      letter-spacing: 1px;
+
+      outline: none;
+      border-bottom: 3px solid white;
+      border-top: none;
+      border-left: none;
+      border-right: none;
+
       color: white;
+
+      cursor: pointer;
     }
 
     .submit-button {
       margin: 1rem 0rem;
-      padding: 0.5rem;
+      padding: 0.8rem;
 
-      background-color: rgb(114, 114, 114);
+      font-size: 1rem;
+      font-weight: bold;
+      letter-spacing: 2px;
+
+      // background-color: rgb(114, 114, 114);
+      background-color: $prussian;
       border: none;
       border-radius: 8px;
       color: white;
 
-      transition: all 300ms ease-in-out;
+      transition: all 450ms ease-in-out;
+
+      cursor: pointer;
 
       &:hover {
-        background-color: blue;
+        background-color: $alice;
         color: #333;
       }
     }

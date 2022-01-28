@@ -4,12 +4,22 @@
   justify-content: center;
   align-items: center;
 
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
-    url("../data/images/Jade-Colossus.jpg") center center / cover, #333;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.6)),
+    url("../data/images/numenera-background.jpg") center center / cover, #333;
   background-attachment: fixed;
 
   height: 100%;
   width: 100%;
 
   overflow-x: hidden;
+
+  .trademark {
+    position: relative;
+    bottom: 0;
+
+    font-weight: medium;
+    color: #fff;
+
+    margin-bottom: 2rem;
+  }
 }

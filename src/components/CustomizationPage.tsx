@@ -212,6 +212,8 @@ function CustomizationPage() {
         <b>{characterInfo.foci}</b>
       </p>
 
+      <span className="divider"></span>
+
       <span className="pools-title">Pools</span>
       <div className="pools-container">
         <div className="pools-wrapper">
@@ -290,6 +292,8 @@ function CustomizationPage() {
         </div>
       </div>
 
+      <span className="divider"></span>
+
       {/* edge */}
 
       <div className="edges-container">
@@ -336,6 +340,8 @@ function CustomizationPage() {
           </span>
         </span>
       </div>
+
+      <span className="divider"></span>
 
       {/* Skills */}
       <div className="skills-container">
