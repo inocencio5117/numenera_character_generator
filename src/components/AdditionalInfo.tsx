@@ -75,6 +75,12 @@ function AdditionalInfo() {
                 return <li key={equipment}>{equipment}</li>;
               })}
             </ul>
+
+            {descriptorData?.armor || fociData?.armor ? (
+              <b>
+                Armor: {(descriptorData?.armor || 0) + (fociData?.armor || 0)}
+              </b>
+            ) : null}
           </span>
 
           <span className="additional-children">

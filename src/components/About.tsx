@@ -20,7 +20,7 @@ function About() {
         <p>I hope you enjoy it!</p>
         <p>You can find me here: </p>
         <a
-          href="mailto:vinicius@inocencio@dev"
+          href="mailto:vinicius@inocencio@dev?subject=Numenera Character Generator"
           target="_blank"
           rel="noopener noreferrer"
         >

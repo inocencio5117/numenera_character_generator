@@ -1018,7 +1018,7 @@ const types = [
       "Right Tool for The Job",
       "Skill With Defense",
       "Trained In Armor",
-      "Trained With Armor",
+      "Trained Without Armor",
     ],
     skills: {
       trained: [
@@ -1240,6 +1240,7 @@ const foci = [
     stats: {
       might: 4,
     },
+    armor: 1,
     skills: {
       trained: ["Immune to  diseases and poison"],
       inability: ["Speed defense tasks"],
