@@ -557,7 +557,7 @@ const descriptors = [
     skills: {
       trained: ["Endurance and keep an understanding in face of difficulties"],
     },
-    extra: ["+2 to might or intellect pool"],
+    extras: ["+2 to might or intellect pool"],
     abilities: ["Irrepressible Reaction"],
   },
   {
@@ -658,12 +658,12 @@ const descriptors = [
   },
   {
     name: "Stealthy",
-    sourcebook: "Numenera Corebook",
-    page: 50,
+    sourcebook: "Numenera Discovery",
+    page: 56,
     stats: {
       speed: 2,
     },
-    sources: [{ sourcebook: "Players Guide", page: 36 }],
+    sources: [{ sourcebook: "Players Guide 2e", page: 57 }],
     skills: {
       trained: [
         "All stealthy tasks",
@@ -675,12 +675,12 @@ const descriptors = [
   },
   {
     name: "Strong",
-    sourcebook: "Numenera Corebook",
-    page: 50,
+    sourcebook: "Numenera Discovery",
+    page: 57,
     stats: {
       might: 2,
     },
-    sources: [{ sourcebook: "Players Guide", page: 37 }],
+    sources: [{ sourcebook: "Players Guide 2e", page: 57 }],
     skills: {
       trained: ["Breaking inanimate objects", "Jumping"],
       inability: ["Movement-related tasks"],
@@ -689,12 +689,12 @@ const descriptors = [
   },
   {
     name: "Strong-Willed",
-    sourcebook: "Numenera Corebook",
-    page: 50,
+    sourcebook: "Numenera Discovery",
+    page: 57,
     stats: {
       intellect: 4,
     },
-    sources: [{ sourcebook: "Players Guide", page: 37 }],
+    sources: [{ sourcebook: "Players Guide", page: 57 }],
     skills: {
       trained: [
         "Resisting mental effects",
@@ -707,12 +707,12 @@ const descriptors = [
   },
   {
     name: "Swift",
-    sourcebook: "Numenera Corebook",
-    page: 51,
+    sourcebook: "Numenera Discovery",
+    page: 57,
     stats: {
       speed: 4,
     },
-    sources: [{ sourcebook: "Players Guide", page: 37 }],
+    sources: [{ sourcebook: "Players Guide 2e", page: 58 }],
     skills: {
       trained: ["Initiative actions to determine combat order", "Running"],
       inability: ["Balancing"],
@@ -720,13 +720,13 @@ const descriptors = [
   },
   {
     name: "Tough",
-    sourcebook: "Numenera Corebook",
-    page: 51,
+    sourcebook: "Numenera Discovery",
+    page: 57,
     armor: 1,
     stats: {
       speed: 4,
     },
-    sources: [{ sourcebook: "Players Guide", page: 37 }],
+    sources: [{ sourcebook: "Players Guide 2e", page: 58 }],
     skills: {
       trained: ["Might defense"],
     },
@@ -738,7 +738,7 @@ const descriptors = [
     sourcebook: "Numenera Destiny",
     page: 54,
     armor: 1,
-    sources: [{ sourcebook: "Players Guide", page: 58 }],
+    sources: [{ sourcebook: "Players Guide 2e", page: 58 }],
     skills: {
       trained: ["Tracking creatures that wronged you"],
     },
@@ -747,50 +747,50 @@ const descriptors = [
       "A book in which you've listed the names of those who`ve wronged you",
     ],
   },
-  {
-    name: "Mutant",
-    sourcebook: "Numenera Corebook",
-    page: 123,
-    extras: "Requires the Numenera Corebook to select mutations",
-  },
-  {
-    name: "Varjellan",
-    sourcebook: "Numenera Corebook",
-    page: 121,
-    stats: {
-      points: -3,
-    },
-    skills: {
-      trained: ["Numenera", "Visual perception"],
-      inability: ["History", "Poetry and oration", "Hearing"],
-    },
-    abilities: ["Reforging", "Slow to recover"],
-  },
-  {
-    name: "Lattimor",
-    sourcebook: "Numenera Corebook",
-    page: 122,
-    stats: {
-      might: 4,
-    },
-    abilities: ["Change state"],
-    skills: {
-      trained: [
-        "Perception (when in Fugue state)",
-        "Attacks in one weapon type (when in Bursk state)",
-        "Breaking things (when in Bursk state)",
-        "All interactions with others (when in Neem state)",
-        "All tasks involving studying, contemplation or mental concentration, including esoteries (when in Neem state)",
-      ],
-      inability: [
-        "Lore, knowledge or understanding tasks (when in Bursk state)",
-        "Interacting with others in a pleasant manner (when in Bursk state)",
-        "Concentration or study - including using esoteries (when in Bursk state)",
-        "Attack and defense (when in Neem state)",
-        "Perception (when in Neem state)",
-      ],
-    },
-  },
+  // {
+  //   name: "Mutant",
+  //   sourcebook: "Numenera Corebook",
+  //   page: 123,
+  //   extras: "Requires the Numenera Corebook to select mutations",
+  // },
+  // {
+  //   name: "Varjellan",
+  //   sourcebook: "Numenera Corebook",
+  //   page: 121,
+  //   stats: {
+  //     points: -3,
+  //   },
+  //   skills: {
+  //     trained: ["Numenera", "Visual perception"],
+  //     inability: ["History", "Poetry and oration", "Hearing"],
+  //   },
+  //   abilities: ["Reforging", "Slow to recover"],
+  // },
+  // {
+  //   name: "Lattimor",
+  //   sourcebook: "Numenera Corebook",
+  //   page: 122,
+  //   stats: {
+  //     might: 4,
+  //   },
+  //   abilities: ["Change state"],
+  //   skills: {
+  //     trained: [
+  //       "Perception (when in Fugue state)",
+  //       "Attacks in one weapon type (when in Bursk state)",
+  //       "Breaking things (when in Bursk state)",
+  //       "All interactions with others (when in Neem state)",
+  //       "All tasks involving studying, contemplation or mental concentration, including esoteries (when in Neem state)",
+  //     ],
+  //     inability: [
+  //       "Lore, knowledge or understanding tasks (when in Bursk state)",
+  //       "Interacting with others in a pleasant manner (when in Bursk state)",
+  //       "Concentration or study - including using esoteries (when in Bursk state)",
+  //       "Attack and defense (when in Neem state)",
+  //       "Perception (when in Neem state)",
+  //     ],
+  //   },
+  // },
 ];
 
 const types = [
@@ -1358,7 +1358,7 @@ const foci = [
   },
   {
     name: "Howls at the Moon",
-    sourcebook: "Numenera Corebook",
+    sourcebook: "Numenera Discovery",
     page: 76,
     artifacts: [
       "A chronometer artifact that lets you know when the next change is coming",

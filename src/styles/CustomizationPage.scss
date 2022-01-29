@@ -363,14 +363,16 @@
 
   @media (max-width: 810px) {
     .character-phrase {
-      font-size: 1.25rem;
+      font-size: 1.35rem;
 
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
 
+      max-width: 95%;
+
       > b {
-        margin: 0rem 0.5rem;
+        margin: 0rem 0.35rem;
       }
     }
 

@@ -217,18 +217,26 @@ function CustomizationPage() {
   }, [characterIndex]);
 
   // Abilities
-
   const [selectedAbility, setSelectedAbility] = useState<string[]>([]);
 
   useEffect(() => {
     setSelectedAbility(selectedAbility);
   }, [selectedAbility]);
 
+  // shins
+  const [shinsValue, setShinsValue] = useState<number>(0);
+
+  useEffect(() => {
+    setShinsValue(
+      (descriptorData?.shins as number) + types[characterIndex].shins
+    );
+  }, [characterIndex, descriptorData?.shins]);
+
   return (
     <div className="customization-page">
       <p className="character-phrase">
-        I am a <b>{characterInfo.descriptor}</b> <b>{characterInfo.type}</b> who{" "}
-        <b>{characterInfo.foci}</b>
+        I am a <b>{characterInfo.descriptor} </b> <b>{characterInfo.type} </b>{" "}
+        who <b>{characterInfo.foci}</b>
       </p>
 
       <span className="divider"></span>
@@ -485,7 +493,35 @@ function CustomizationPage() {
           </span>
 
           <span className="additional-children">
-            <span>References:</span>
+            <span>Shins: {shinsValue}</span>
+
+            <b>Cyphers</b>
+            <span>{types[characterIndex].cyphers}</span>
+            <span>Cypher limit: {types[characterIndex].cypherlimit}</span>
+
+            <b>Oddities</b>
+            <span>{types[characterIndex].oddities}</span>
+
+            {fociData?.extras || descriptorData?.extras ? <b>Extras:</b> : null}
+            <ul>
+              {fociData?.extras?.map((equipment) => {
+                return <li>{equipment}</li>;
+              })}
+              {descriptorData?.extras?.map((extras) => {
+                return <li>{extras}</li>;
+              })}
+            </ul>
+
+            {fociData?.artifacts ? <b>Artifacts:</b> : null}
+            <ul>
+              {fociData?.artifacts?.map((equipment) => {
+                return <li>{equipment}</li>;
+              })}
+            </ul>
+          </span>
+
+          <span className="additional-children">
+            <b>References:</b>
 
             <b>{types[characterIndex].name}</b>
             <span>
@@ -502,18 +538,6 @@ function CustomizationPage() {
             <span>
               {descriptorData?.sourcebook}, page {descriptorData?.page}
             </span>
-          </span>
-
-          <span className="additional-children">
-            <b>Shins</b>
-            <span>{}</span>
-
-            <b>Cyphers</b>
-            <span>{types[characterIndex].cyphers}</span>
-            <span>Cypher limit: {types[characterIndex].cypherlimit}</span>
-
-            <b>Oddities</b>
-            <span>{types[characterIndex].oddities}</span>
           </span>
         </div>
       </div>
