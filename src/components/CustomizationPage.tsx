@@ -9,7 +9,16 @@ import { CharacterContext } from "../contexts/CharacterContext";
 type edgeType = number | undefined;
 
 function CustomizationPage() {
-  function addSelectedAbility(ability: string) {}
+  function removeSelectedAbility(ability: string) {
+    setSelectedAbility(selectedAbility.filter((item) => item !== ability));
+  }
+
+  function addSelectedAbility(ability: string) {
+    if (selectedAbility.length === 2) return;
+    if (selectedAbility.some((item) => item === ability)) return;
+
+    setSelectedAbility([...selectedAbility, ability]);
+  }
 
   // adds a button underneath the edges values when jack the jack type is chosen
   function addEdgeValueForJack(stat: string) {
@@ -209,7 +218,11 @@ function CustomizationPage() {
 
   // Abilities
 
-  const [selectedAbility, setSelectedAbility] = useState();
+  const [selectedAbility, setSelectedAbility] = useState<string[]>([]);
+
+  useEffect(() => {
+    setSelectedAbility(selectedAbility);
+  }, [selectedAbility]);
 
   return (
     <div className="customization-page">
@@ -415,19 +428,32 @@ function CustomizationPage() {
           </span>
 
           <span className="abilities-children">
-            <span>Choose two from the following:</span>
+            {selectedAbility.length === 2 ? null : (
+              <span>Click to choose two from the following:</span>
+            )}
 
             <span className="abilities-choice">
-              {types[characterIndex].abilities.map((abilities) => {
+              {selectedAbility.length === 2
+                ? null
+                : types[characterIndex].abilities.map((abilities) => {
+                    return (
+                      <span onClick={() => addSelectedAbility(abilities)}>
+                        {abilities}
+                      </span>
+                    );
+                  })}
+            </span>
+
+            {selectedAbility.length === 0 ? null : <span>Selected:</span>}
+            <span className="abilities-selected">
+              {selectedAbility.map((ability) => {
                 return (
-                  <span onClick={() => addSelectedAbility(abilities)}>
-                    {abilities}
+                  <span onClick={() => removeSelectedAbility(ability)}>
+                    {ability}
                   </span>
                 );
               })}
             </span>
-
-            <span className="abilities-selected"></span>
           </span>
         </div>
       </div>

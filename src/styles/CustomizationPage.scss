@@ -1,6 +1,7 @@
 $prussian: #1a384c;
 $satin-gold: #ce9e35;
 $pale-silver: #c5c0b1;
+$dark-purple: #271338;
 
 .customization-page {
   display: flex;
@@ -265,7 +266,7 @@ $pale-silver: #c5c0b1;
           align-items: center;
 
           > span {
-            background-color: purple;
+            background-color: $dark-purple;
 
             border-radius: 15px;
 
@@ -274,7 +275,8 @@ $pale-silver: #c5c0b1;
           }
         }
 
-        .abilities-choice {
+        .abilities-choice,
+        .abilities-selected {
           display: flex;
           flex-wrap: wrap;
 
@@ -287,6 +289,12 @@ $pale-silver: #c5c0b1;
             padding: 0.5rem;
 
             cursor: pointer;
+
+            transition: all 400ms ease-in-out;
+
+            &:hover {
+              background-color: $prussian;
+            }
           }
         }
       }
