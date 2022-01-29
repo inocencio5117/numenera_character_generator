@@ -103,6 +103,7 @@ function Pools() {
 
     switch (stat) {
       case "might": {
+        if (mightPoolValue === types[characterIndex].stats.might) return;
         handleStatsPoints("sub");
         return setMightValue(
           mightPoolValue === types[characterIndex].stats.might
@@ -112,6 +113,7 @@ function Pools() {
       }
 
       case "speed": {
+        if (speedPoolValue === types[characterIndex].stats.speed) return;
         handleStatsPoints("sub");
         return setSpeedValue(
           speedPoolValue === types[characterIndex].stats.speed
@@ -121,6 +123,8 @@ function Pools() {
       }
 
       case "intellect":
+        if (intellectPoolValue === types[characterIndex].stats.intellect)
+          return;
         handleStatsPoints("sub");
         return setIntellectValue(
           intellectPoolValue === types[characterIndex].stats.intellect
