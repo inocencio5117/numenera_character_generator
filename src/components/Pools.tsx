@@ -5,6 +5,27 @@ import { descriptors, foci, types } from "../data/character_data";
 type edgeType = number | undefined;
 
 function Pools() {
+  function adaptableCornerCase(stat: string) {
+    if (adaptableCornerCaseAdded) return;
+
+    switch (stat) {
+      case "might":
+        setAdaptableCornerCaseAdded(true);
+        return setMightValue(mightPoolValue + 2);
+
+      case "speed":
+        setAdaptableCornerCaseAdded(true);
+        return setSpeedValue(speedPoolValue + 2);
+
+      case "intellect":
+        setAdaptableCornerCaseAdded(true);
+        return setIntellectValue(intellectPoolValue + 2);
+    }
+  }
+
+  // set 2 points for distribution for intimidation descriptor
+  function intimidationCornerCase() {}
+
   // adds a button underneath the edges values when jack the jack type is chosen
   function addEdgeValueForJack(stat: string) {
     if (
@@ -115,6 +136,9 @@ function Pools() {
     setIntellectEdgeValue(types[characterIndex].edges.intellect);
     setMightEdgeValue(types[characterIndex].edges.might);
     setSpeedEdgeValue(types[characterIndex].edges.speed);
+
+    if (descriptorData?.name === "Adaptable")
+      setAdaptableCornerCaseAdded(false);
   }
 
   const { characterInfo } = useContext(CharacterContext);
@@ -147,6 +171,14 @@ function Pools() {
   const [pointsValue, setPointsValue] = useState<number>(
     types[characterIndex].stats.points as number
   );
+
+  // controlls adaptable corner case addition to an pool
+  const [adaptableCornerCaseAdded, setAdaptableCornerCaseAdded] =
+    useState<boolean>(false);
+
+  useEffect(() => {
+    setAdaptableCornerCaseAdded(false);
+  }, []);
 
   // descriptor stats values
   const intellectFromDescriptor = descriptorData?.stats?.intellect || 0;
@@ -209,6 +241,16 @@ function Pools() {
 
           <span>{mightPoolValue}</span>
 
+          {/* adaptable corner case */}
+          {descriptorData?.name === "Adaptable" && !adaptableCornerCaseAdded ? (
+            <button
+              onClick={() => adaptableCornerCase("might")}
+              className="adaptable-case-button"
+            >
+              +2
+            </button>
+          ) : null}
+
           <div>
             <button
               className="pools-button"
@@ -230,6 +272,16 @@ function Pools() {
 
           <span>{speedPoolValue}</span>
 
+          {/* adaptable corner case */}
+          {descriptorData?.name === "Adaptable" && !adaptableCornerCaseAdded ? (
+            <button
+              onClick={() => adaptableCornerCase("speed")}
+              className="adaptable-case-button"
+            >
+              +2
+            </button>
+          ) : null}
+
           <div>
             <button
               className="pools-button"
@@ -250,6 +302,16 @@ function Pools() {
           <span>Intellect</span>
 
           <span>{intellectPoolValue}</span>
+
+          {/* adaptable corner case */}
+          {descriptorData?.name === "Adaptable" && !adaptableCornerCaseAdded ? (
+            <button
+              onClick={() => adaptableCornerCase("intellect")}
+              className="adaptable-case-button"
+            >
+              +2
+            </button>
+          ) : null}
 
           <div>
             <button

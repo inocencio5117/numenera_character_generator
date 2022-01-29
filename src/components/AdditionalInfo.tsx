@@ -20,11 +20,6 @@ function AdditionalInfo() {
   // shins
   const [shinsValue, setShinsValue] = useState<number | undefined>(0);
 
-  console.log(descriptorData?.shins);
-  console.log(descriptorData);
-
-  console.log(shinsValue);
-
   useEffect(() => {
     setShinsValue(
       (descriptorData?.shins ? descriptorData.shins : 0) +

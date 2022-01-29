@@ -27,6 +27,24 @@
 
     height: 40%;
 
+    .adaptable-case-button {
+      font-size: 1.15rem;
+      font-weight: bold;
+
+      text-align: center;
+      line-height: 0rem;
+
+      background-color: $alice-blue;
+
+      height: 2rem;
+      width: 2rem;
+
+      border: none;
+      border-radius: 100%;
+
+      margin: 0rem 0.5rem 0.5rem 0.5rem;
+    }
+
     > span {
       font-size: 1.5rem;
 
