@@ -79,6 +79,15 @@
       border-radius: 100%;
 
       margin: 0rem 0.5rem;
+
+      cursor: pointer;
+
+      transition: all 400ms ease-in-out;
+
+      &:hover {
+        background-color: $prussian;
+        color: $alice-blue;
+      }
     }
 
     .pools-reset-button {
@@ -94,6 +103,15 @@
       border-radius: 8px;
 
       padding: 0.5rem;
+
+      cursor: pointer;
+
+      transition: all 400ms ease-in-out;
+
+      &:hover {
+        background-color: $prussian;
+        color: $alice-blue;
+      }
     }
   }
 }

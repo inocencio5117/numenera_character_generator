@@ -6,16 +6,19 @@ div.generator {
     width: 95%;
 
     h1 {
-      font-size: 1.5rem;
+      font-size: 1.25rem;
       margin: 1rem 0rem;
     }
   }
 
   @media (max-width: 810px) {
     height: 100%;
+    min-height: 31rem;
 
     h1 {
-      font-size: 1.4rem;
+      font-size: 1.25rem;
+      padding: 1rem;
+      text-align: center;
     }
   }
 

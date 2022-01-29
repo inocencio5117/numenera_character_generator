@@ -56,8 +56,15 @@
     border: none;
     border-radius: 8px;
 
+    transition: all 400ms ease-in-out;
+
     &:visited {
       color: white;
+    }
+
+    &:hover {
+      background-color: $alice-blue !important;
+      color: #000 !important;
     }
   }
 }
