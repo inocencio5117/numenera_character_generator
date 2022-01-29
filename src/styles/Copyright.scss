@@ -39,10 +39,6 @@
       color: white;
     }
   }
-
-  @media (max-width: 1325px) {
-    width: 95%;
-  }
 }
 
 .copyright-container {
@@ -50,8 +46,13 @@
 
   min-height: 100vh;
 
+  h1 {
+    margin: 1rem 0rem;
+  }
+
   > p {
     max-width: 80%;
+    margin-bottom: 1rem;
 
     > a {
       color: $munsell;
@@ -62,9 +63,5 @@
         color: $pale-silver;
       }
     }
-  }
-
-  @media (max-width: 1325px) {
-    width: 95%;
   }
 }

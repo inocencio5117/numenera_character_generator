@@ -16,26 +16,9 @@ $alice: #f2fafc;
   background-color: rgba(158, 158, 158, 0.25);
   color: #fff;
 
-  max-height: 26rem;
+  max-height: 29rem;
   height: auto;
   width: 80rem;
-
-  @media (max-width: 1325px) {
-    height: 100%;
-    width: 95%;
-
-    h1 {
-      font-size: 1.5rem;
-    }
-  }
-
-  @media (max-width: 810px) {
-    height: 100%;
-
-    h1 {
-      font-size: 1.4rem;
-    }
-  }
 
   form {
     display: flex;
@@ -58,7 +41,6 @@ $alice: #f2fafc;
 
       font-size: 1rem;
 
-      // background-color: rgb(114, 114, 114);
       background-color: transparent;
 
       font-weight: bold;
@@ -84,7 +66,6 @@ $alice: #f2fafc;
       font-weight: bold;
       letter-spacing: 2px;
 
-      // background-color: rgb(114, 114, 114);
       background-color: $prussian;
       border: none;
       border-radius: 8px;
@@ -97,26 +78,6 @@ $alice: #f2fafc;
       &:hover {
         background-color: $alice;
         color: #333;
-      }
-    }
-
-    @media (max-width: 1325px) {
-      flex-direction: column;
-
-      #descriptor,
-      #type,
-      #foci {
-        width: 65%;
-        text-align: center;
-      }
-    }
-
-    @media (max-width: 810px) {
-      #descriptor,
-      #type,
-      #foci {
-        width: 100%;
-        text-align: center;
       }
     }
   }

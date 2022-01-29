@@ -22,5 +22,9 @@
     color: #fff;
 
     margin-bottom: 2rem;
+
+    @media (max-width: 810px) {
+      margin-bottom: 4rem;
+    }
   }
 }

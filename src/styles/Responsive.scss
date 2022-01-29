@@ -1,3 +1,49 @@
+@import "./colors.scss";
+
+div.generator {
+  @media (max-width: 1325px) {
+    height: 100%;
+    width: 95%;
+
+    h1 {
+      font-size: 1.5rem;
+      margin: 1rem 0rem;
+    }
+  }
+
+  @media (max-width: 810px) {
+    height: 100%;
+
+    h1 {
+      font-size: 1.4rem;
+    }
+  }
+
+  > form {
+    @media (max-width: 1325px) {
+      flex-direction: column;
+
+      // margin-bottom: 2rem;
+
+      #descriptor,
+      #type,
+      #foci {
+        width: 65%;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 810px) {
+      #descriptor,
+      #type,
+      #foci {
+        width: 100%;
+        text-align: center;
+      }
+    }
+  }
+}
+
 div.customization-page {
   @media (max-width: 1325px) {
     width: 95%;
@@ -45,5 +91,44 @@ div.customization-page {
     .additional-children {
       min-width: 100%;
     }
+  }
+}
+
+nav.navbar {
+  @media (max-width: 810px) {
+    justify-content: center;
+
+    position: fixed;
+    bottom: 0;
+    left: 0;
+
+    background-color: #333;
+
+    margin: 0rem;
+    padding: 0.25rem;
+
+    z-index: 1;
+
+    .navbar-title {
+      display: none;
+    }
+
+    .navbar-links a {
+      margin: 1.5rem;
+    }
+  }
+}
+
+div.get-started {
+  @media (max-width: 1325px) {
+    width: 95%;
+
+    margin-top: 2rem;
+  }
+}
+
+div.copyright-container {
+  @media (max-width: 1325px) {
+    width: 95%;
   }
 }

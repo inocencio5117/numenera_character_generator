@@ -9,6 +9,7 @@ function Copyright() {
           Get Started!
         </Link>
       </div>
+
       <div className="copyright-container">
         <h1>Copyright</h1>
         <p>

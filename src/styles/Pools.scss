@@ -94,6 +94,7 @@
     }
   }
 }
+
 .edges-container {
   display: flex;
   justify-content: space-evenly;
@@ -124,20 +125,21 @@
       align-items: center;
       flex-direction: column;
 
-      // background-color: red;
       margin: 1rem;
 
       font-weight: bold;
 
       > span + span {
-        padding: 1.25rem;
+        display: inline-block;
+
+        padding: 1rem;
         margin-top: 1.5rem;
 
         border: none;
         border-radius: 8px;
 
-        width: 2rem;
-        height: 2rem;
+        width: 4rem;
+        height: 4rem;
 
         text-align: center;
 

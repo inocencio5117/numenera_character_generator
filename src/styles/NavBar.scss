@@ -28,17 +28,4 @@
       }
     }
   }
-
-  @media (max-width: 810px) {
-    flex-direction: column;
-    justify-content: center;
-
-    .navbar-title {
-      display: none;
-    }
-
-    .navbar-links a {
-      margin: 0rem 1rem;
-    }
-  }
 }
