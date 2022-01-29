@@ -21,30 +21,7 @@
 .about-container {
   @include content;
 
-  h1 {
-    margin: 1rem 0rem;
-  }
-
-  > p {
-    max-width: 80%;
-    margin-bottom: 1rem;
-  }
-
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-
-  border-radius: 15px;
-
-  margin-bottom: 2rem;
-
-  font-size: 1.25rem;
-
-  background-color: rgba(158, 158, 158, 0.25);
-  color: #fff;
-
-  height: auto;
-  width: 80rem;
+  padding-bottom: 1rem;
 
   h1 {
     margin: 1rem 0rem;
@@ -53,6 +30,12 @@
   > p {
     max-width: 80%;
     margin-bottom: 1rem;
+  }
+
+  > a {
+    color: $pale-silver;
+
+    margin: 0.5rem 0rem;
   }
 }
 

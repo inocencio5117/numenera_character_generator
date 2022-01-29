@@ -28,7 +28,8 @@
     height: 40%;
 
     .adaptable-case-button,
-    .intimidating-case-button {
+    .intimidating-case-button,
+    .lawful-case-button {
       font-size: 1.15rem;
       font-weight: bold;
 
@@ -38,11 +39,12 @@
       background-color: $alice-blue;
 
       height: 2rem;
-      width: 2rem;
+      min-width: 2.5rem;
 
       border: none;
       border-radius: 5px;
 
+      padding: 0.5rem;
       margin: 0rem 0.5rem 0.5rem 0.75rem;
     }
 

@@ -5,6 +5,20 @@ import { descriptors, foci, types } from "../data/character_data";
 type edgeType = number | undefined;
 
 function Pools() {
+  function lawfulCornerCase(stat: string) {
+    if (lawfulCornerCaseAdded) return;
+
+    switch (stat) {
+      case "might":
+        setLawfulCornerCaseAdded(true);
+        return setMightValue(mightPoolValue + 2);
+
+      case "speed":
+        setLawfulCornerCaseAdded(true);
+        return setSpeedValue(speedPoolValue + 2);
+    }
+  }
+
   function adaptableCornerCase(stat: string) {
     if (adaptableCornerCaseAdded) return;
 
@@ -161,10 +175,12 @@ function Pools() {
     if (descriptorData?.name === "Adaptable")
       setAdaptableCornerCaseAdded(false);
 
-    if (descriptorData?.name === "Intimidating")
+    if (descriptorData?.name === "Intimidating" || "Persevering")
       setIntimidatingCornerCaseAdded(false);
 
     if (types[characterIndex]?.name === "Jack") setJackEdgeAdded(false);
+
+    if (descriptorData?.name === "Lawful") setLawfulCornerCaseAdded(false);
   }
 
   const { characterInfo } = useContext(CharacterContext);
@@ -209,10 +225,14 @@ function Pools() {
 
   const [jackEdgeAdded, setJackEdgeAdded] = useState<boolean>(false);
 
+  const [lawfulCornerCaseAdded, setLawfulCornerCaseAdded] =
+    useState<boolean>(false);
+
   useEffect(() => {
     setAdaptableCornerCaseAdded(false);
     setIntimidatingCornerCaseAdded(false);
     setJackEdgeAdded(false);
+    setLawfulCornerCaseAdded(false);
   }, []);
 
   // descriptor stats values
@@ -287,11 +307,22 @@ function Pools() {
           ) : null}
 
           {/* intimidating corner case*/}
-          {descriptorData?.name === "Intimidating" &&
+          {(descriptorData?.name === "Intimidating" ||
+            descriptorData?.name === "Persevering") &&
           !intimidatingCornerCaseAdded ? (
             <button
               onClick={() => intimidationCornerCase("might")}
               className="intimidating-case-button"
+            >
+              +2
+            </button>
+          ) : null}
+
+          {/* lawful corner case */}
+          {descriptorData?.name === "Lawful" && !lawfulCornerCaseAdded ? (
+            <button
+              onClick={() => lawfulCornerCase("might")}
+              className="adaptable-case-button"
             >
               +2
             </button>
@@ -322,7 +353,7 @@ function Pools() {
           {descriptorData?.name === "Adaptable" && !adaptableCornerCaseAdded ? (
             <button
               onClick={() => adaptableCornerCase("speed")}
-              className="adaptable-case-button"
+              className="lawful-case-button"
             >
               +2
             </button>
@@ -335,7 +366,17 @@ function Pools() {
               onClick={() => intimidationCornerCase("both")}
               className="intimidating-case-button"
             >
-              +1 in might and intellect
+              +1 in both
+            </button>
+          ) : null}
+
+          {/* lawful corner case*/}
+          {descriptorData?.name === "Lawful" && !lawfulCornerCaseAdded ? (
+            <button
+              onClick={() => lawfulCornerCase("speed")}
+              className="lawful-case-button"
+            >
+              +2
             </button>
           ) : null}
 
@@ -371,7 +412,7 @@ function Pools() {
           ) : null}
 
           {/* intimidating corner case*/}
-          {descriptorData?.name === "Intimidating" &&
+          {(descriptorData?.name === "Intimidating" || "Persevering") &&
           !intimidatingCornerCaseAdded ? (
             <button
               onClick={() => intimidationCornerCase("intellect")}
