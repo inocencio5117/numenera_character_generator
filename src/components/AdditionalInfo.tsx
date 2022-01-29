@@ -34,7 +34,7 @@ function AdditionalInfo() {
 
         <div className="additional-wrapper">
           <span className="additional-children">
-            <span>Equipment:</span>
+            <b>Equipment:</b>
 
             <ul>
               {types[characterIndex].equipment.map((equipment) => {

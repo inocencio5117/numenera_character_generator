@@ -11,7 +11,7 @@ function NavBar() {
           Copyright
         </Link>
 
-        <Link to="/" key="copyright">
+        <Link to="/about" key="about">
           About
         </Link>
       </span>

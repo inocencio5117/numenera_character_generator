@@ -10,6 +10,7 @@ import "./styles/Divider.scss";
 import "./styles/Responsive.scss";
 import "./styles/Copyright.scss";
 import "./styles/NavBar.scss";
+import "./styles/About.scss";
 
 import { Generator } from "./components/Generator";
 import { Copyright } from "./components/Copyright";
@@ -17,6 +18,7 @@ import { Copyright } from "./components/Copyright";
 import { CharacterContextProvider } from "./contexts/CharacterContext";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { NavBar } from "./components/NavBar";
+import { About } from "./components/About";
 
 function App() {
   return (
@@ -27,7 +29,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Copyright />} />
             <Route path="/generator" element={<Generator />} />
-            <Route path="/About" element={<></>} />
+            <Route path="/About" element={<About />} />
           </Routes>
         </BrowserRouter>
         <span className="trademark">TM and © 2021 Monte Cook Games, LLC.</span>

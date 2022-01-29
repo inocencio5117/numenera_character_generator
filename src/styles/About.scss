@@ -1,0 +1,80 @@
+@import "./colors.scss";
+
+@mixin content {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  border-radius: 15px;
+
+  margin-bottom: 2rem;
+
+  font-size: 1.25rem;
+
+  background-color: rgba(158, 158, 158, 0.25);
+  color: #fff;
+
+  height: auto;
+  width: 80rem;
+}
+
+.about-container {
+  @include content;
+
+  h1 {
+    margin: 1rem 0rem;
+  }
+
+  > p {
+    max-width: 80%;
+    margin-bottom: 1rem;
+  }
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  border-radius: 15px;
+
+  margin-bottom: 2rem;
+
+  font-size: 1.25rem;
+
+  background-color: rgba(158, 158, 158, 0.25);
+  color: #fff;
+
+  height: auto;
+  width: 80rem;
+
+  h1 {
+    margin: 1rem 0rem;
+  }
+
+  > p {
+    max-width: 80%;
+    margin-bottom: 1rem;
+  }
+}
+
+.get-started {
+  @include content;
+
+  height: 8rem;
+
+  justify-content: center;
+
+  > a {
+    padding: 1rem;
+
+    text-decoration: none;
+
+    background-color: $prussian;
+
+    border: none;
+    border-radius: 8px;
+
+    &:visited {
+      color: white;
+    }
+  }
+}

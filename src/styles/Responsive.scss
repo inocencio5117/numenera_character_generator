@@ -132,3 +132,9 @@ div.copyright-container {
     width: 95%;
   }
 }
+
+div.about-container {
+  @media (max-width: 1325px) {
+    width: 95%;
+  }
+}
