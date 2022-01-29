@@ -9,6 +9,8 @@ import { CharacterContext } from "../contexts/CharacterContext";
 type edgeType = number | undefined;
 
 function CustomizationPage() {
+  function addSelectedAbility(ability: string) {}
+
   // adds a button underneath the edges values when jack the jack type is chosen
   function addEdgeValueForJack(stat: string) {
     if (
@@ -205,6 +207,10 @@ function CustomizationPage() {
     setIntellectEdgeValue(types[characterIndex].edges.intellect);
   }, [characterIndex]);
 
+  // Abilities
+
+  const [selectedAbility, setSelectedAbility] = useState();
+
   return (
     <div className="customization-page">
       <p className="character-phrase">
@@ -385,6 +391,43 @@ function CustomizationPage() {
                 return <li>{inability}</li>;
               })}
             </ul>
+          </span>
+        </div>
+      </div>
+
+      <span className="divider"></span>
+
+      <div className="abilities-container">
+        <span className="abilities-title">Abilities</span>
+
+        <div className="abilities-wrapper">
+          <span className="abilities-children">
+            <span>Fixed Abilities</span>
+
+            <span className="abilities-fixed">
+              {fociData?.abilities?.map((abilities) => {
+                return <span>{abilities}</span>;
+              })}
+              {descriptorData?.abilities?.map((abilities) => {
+                return <span>{abilities}</span>;
+              })}
+            </span>
+          </span>
+
+          <span className="abilities-children">
+            <span>Choose two from the following:</span>
+
+            <span className="abilities-choice">
+              {types[characterIndex].abilities.map((abilities) => {
+                return (
+                  <span onClick={() => addSelectedAbility(abilities)}>
+                    {abilities}
+                  </span>
+                );
+              })}
+            </span>
+
+            <span className="abilities-selected"></span>
           </span>
         </div>
       </div>
