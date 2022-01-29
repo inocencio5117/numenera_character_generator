@@ -1,0 +1,49 @@
+.customization-page {
+  @media (max-width: 1325px) {
+    width: 95%;
+
+    .character-phrase {
+      font-size: 1.75rem;
+    }
+  }
+
+  @media (max-width: 810px) {
+    .character-phrase {
+      font-size: 1.35rem;
+
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+
+      max-width: 95%;
+
+      > b {
+        margin: 0rem 0.35rem;
+      }
+    }
+
+    .pools-container {
+      flex-wrap: wrap;
+
+      .pools-wrapper {
+        margin: 1rem 2rem;
+      }
+    }
+
+    .skills-children {
+      min-width: 85%;
+
+      > ul {
+        align-self: flex-start;
+      }
+    }
+
+    .abilities-children {
+      min-width: 100%;
+    }
+
+    .additional-children {
+      min-width: 100%;
+    }
+  }
+}

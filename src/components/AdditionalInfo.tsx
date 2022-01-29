@@ -1,0 +1,110 @@
+import React, { useContext, useEffect, useState } from "react";
+import { CharacterContext } from "../contexts/CharacterContext";
+import { descriptors, foci, types } from "../data/character_data";
+
+function AdditionalInfo() {
+  const { characterInfo } = useContext(CharacterContext);
+
+  // character data
+  const characterIndex =
+    characterInfo.type !== ""
+      ? types.findIndex((el) => el.name === characterInfo.type)
+      : 2;
+
+  const descriptorData = descriptors.find(
+    (desc) => desc.name === characterInfo.descriptor
+  );
+
+  const fociData = foci.find((foci) => foci.name === characterInfo.foci);
+
+  // shins
+  const [shinsValue, setShinsValue] = useState<number | undefined>(0);
+
+  console.log(descriptorData?.shins);
+  console.log(descriptorData);
+
+  console.log(shinsValue);
+
+  useEffect(() => {
+    setShinsValue(
+      (descriptorData?.shins ? descriptorData.shins : 0) +
+        types[characterIndex].shins
+    );
+  }, [characterIndex, descriptorData?.shins]);
+
+  return (
+    <>
+      <div className="additional-container">
+        <span className="additional-title">Additional Information</span>
+
+        <div className="additional-wrapper">
+          <span className="additional-children">
+            <span>Equipment:</span>
+
+            <ul>
+              {types[characterIndex].equipment.map((equipment) => {
+                return <li key={equipment}>{equipment}</li>;
+              })}
+              {fociData?.equipment?.map((equipment) => {
+                return <li key={equipment}>{equipment}</li>;
+              })}
+              {descriptorData?.equipment?.map((equipment) => {
+                return <li key={equipment}>{equipment}</li>;
+              })}
+            </ul>
+          </span>
+
+          <span className="additional-children">
+            <span>Shins: {shinsValue}</span>
+
+            <b>Cyphers</b>
+            <span>{types[characterIndex].cyphers}</span>
+            <span>Cypher limit: {types[characterIndex].cypherlimit}</span>
+
+            <b>Oddities</b>
+            <span>{types[characterIndex].oddities}</span>
+
+            {fociData?.extras || descriptorData?.extras ? <b>Extras:</b> : null}
+            <ul>
+              {fociData?.extras?.map((equipment) => {
+                return <li key={equipment}>{equipment}</li>;
+              })}
+              {descriptorData?.extras?.map((extras) => {
+                return <li key={extras}>{extras}</li>;
+              })}
+            </ul>
+
+            {fociData?.artifacts ? <b>Artifacts:</b> : null}
+            <ul>
+              {fociData?.artifacts?.map((equipment) => {
+                return <li key={equipment}>{equipment}</li>;
+              })}
+            </ul>
+          </span>
+
+          <span className="additional-children">
+            <b>References:</b>
+
+            <b>{types[characterIndex].name}</b>
+            <span>
+              {types[characterIndex].sourcebook}, page{" "}
+              {types[characterIndex].page}
+            </span>
+
+            <b>{fociData?.name}</b>
+            <span>
+              {fociData?.sourcebook}, page {fociData?.page}
+            </span>
+
+            <b>{descriptorData?.name}</b>
+            <span>
+              {descriptorData?.sourcebook}, page {descriptorData?.page}
+            </span>
+          </span>
+        </div>
+      </div>
+    </>
+  );
+}
+
+export { AdditionalInfo };

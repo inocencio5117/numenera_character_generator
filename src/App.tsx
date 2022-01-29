@@ -2,6 +2,11 @@ import React from "react";
 import "./styles/MainContainer.scss";
 import "./styles/MainContainer.scss";
 import "./styles/GlobalStyles.scss";
+import "./styles/Pools.scss";
+import "./styles/Skills.scss";
+import "./styles/Abilities.scss";
+import "./styles/AdditionalInfo.scss";
+import "./styles/Divider.scss";
 
 import { Generator } from "./components/Generator";
 import { CustomizationPage } from "./components/CustomizationPage";
