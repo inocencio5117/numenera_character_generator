@@ -412,7 +412,8 @@ function Pools() {
           ) : null}
 
           {/* intimidating corner case*/}
-          {(descriptorData?.name === "Intimidating" || "Persevering") &&
+          {(descriptorData?.name === "Intimidating" ||
+            descriptorData?.name === "Persevering") &&
           !intimidatingCornerCaseAdded ? (
             <button
               onClick={() => intimidationCornerCase("intellect")}

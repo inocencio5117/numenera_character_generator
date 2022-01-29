@@ -75,7 +75,14 @@ function Abilities() {
                   })}
             </span>
 
-            {selectedAbility.length === 0 ? null : <span>Selected:</span>}
+            {selectedAbility.length === 0 ? null : (
+              <span>
+                <br />
+                Click to remove
+                <br />
+                Selected:
+              </span>
+            )}
             <span className="abilities-selected">
               {selectedAbility.map((ability) => {
                 return (
