@@ -6,8 +6,7 @@ div.generator {
     width: 95%;
 
     h1 {
-      font-size: 1.25rem;
-      margin: 1rem 0rem;
+      display: none;
     }
   }
 
@@ -16,6 +15,8 @@ div.generator {
     min-height: 31rem;
 
     h1 {
+      display: block;
+
       font-size: 1.25rem;
       padding: 1rem;
       text-align: center;

@@ -44,9 +44,7 @@ function GeneratorHeader() {
 
   return (
     <div className="generator">
-      <header>
-        <h1>Numenera Character Generator</h1>
-      </header>
+      <h1>Numenera Character Generator</h1>
 
       <form onSubmit={(e) => getUserInput(e)}>
         <b>I am a</b>
@@ -56,7 +54,9 @@ function GeneratorHeader() {
           id="descriptor"
           onChange={(e) => getDescriptor(e)}
         >
-          <option value="" selected disabled></option>
+          <option value="" selected disabled>
+            adjective
+          </option>
 
           {descriptors.map((descriptor) => {
             return (
@@ -68,7 +68,9 @@ function GeneratorHeader() {
         </select>
 
         <select name="type" id="type" onChange={(e) => getType(e)}>
-          <option value="" selected disabled></option>
+          <option value="" selected disabled>
+            noun
+          </option>
 
           {types.map((type) => {
             return (
@@ -82,7 +84,9 @@ function GeneratorHeader() {
         <b>who</b>
 
         <select name="foci" id="foci" onChange={(e) => getFoci(e)}>
-          <option value="" selected disabled></option>
+          <option value="" selected disabled>
+            verbs
+          </option>
 
           {foci.map((foci) => {
             return (
