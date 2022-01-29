@@ -1,0 +1,44 @@
+@import "./colors.scss";
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+
+  min-height: 2rem;
+  width: 100%;
+
+  margin: 1.5rem 0rem;
+
+  color: #fff;
+  font-weight: bold;
+
+  > span + span {
+    > a {
+      text-decoration: none;
+
+      margin: 0rem 3rem;
+
+      color: $prussian;
+
+      transition: all 350ms ease-in-out;
+
+      &:visited {
+        color: #fff;
+      }
+    }
+  }
+
+  @media (max-width: 810px) {
+    flex-direction: column;
+    justify-content: center;
+
+    .navbar-title {
+      display: none;
+    }
+
+    .navbar-links a {
+      margin: 0rem 1rem;
+    }
+  }
+}

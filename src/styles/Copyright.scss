@@ -1,0 +1,70 @@
+@import "./colors.scss";
+
+@mixin content {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  border-radius: 15px;
+
+  margin-bottom: 2rem;
+
+  font-size: 1.25rem;
+
+  background-color: rgba(158, 158, 158, 0.25);
+  color: #fff;
+
+  height: auto;
+  width: 80rem;
+}
+
+.get-started {
+  @include content;
+
+  height: 8rem;
+
+  justify-content: center;
+
+  > a {
+    padding: 1rem;
+
+    text-decoration: none;
+
+    background-color: $prussian;
+
+    border: none;
+    border-radius: 8px;
+
+    &:visited {
+      color: white;
+    }
+  }
+
+  @media (max-width: 1325px) {
+    width: 95%;
+  }
+}
+
+.copyright-container {
+  @include content;
+
+  min-height: 100vh;
+
+  > p {
+    max-width: 80%;
+
+    > a {
+      color: $munsell;
+
+      text-decoration: none;
+
+      &:visited {
+        color: $pale-silver;
+      }
+    }
+  }
+
+  @media (max-width: 1325px) {
+    width: 95%;
+  }
+}
