@@ -28,9 +28,9 @@
   > a {
     padding: 1rem;
 
-    text-decoration: none;
+    text-decoration: none !important;
 
-    background-color: $prussian;
+    background-color: $prussian !important;
 
     border: none;
     border-radius: 8px;
