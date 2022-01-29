@@ -24,7 +24,25 @@ function Pools() {
   }
 
   // set 2 points for distribution for intimidation descriptor
-  function intimidationCornerCase() {}
+  function intimidationCornerCase(stat: string) {
+    if (intimidatingCornerCaseAdded) return;
+
+    switch (stat) {
+      case "might":
+        setIntimidatingCornerCaseAdded(true);
+        return setMightValue(mightPoolValue + 2);
+
+      case "intellect":
+        setIntimidatingCornerCaseAdded(true);
+        return setIntellectValue(intellectPoolValue + 2);
+
+      case "both":
+        setIntimidatingCornerCaseAdded(true);
+        setIntellectValue(intellectPoolValue + 1);
+        setMightValue(mightPoolValue + 1);
+        break;
+    }
+  }
 
   // adds a button underneath the edges values when jack the jack type is chosen
   function addEdgeValueForJack(stat: string) {
@@ -38,12 +56,15 @@ function Pools() {
     if (characterInfo.type === "Jack") {
       switch (stat) {
         case "might":
+          setJackEdgeAdded(true);
           return setMightEdgeValue(1);
 
         case "speed":
+          setJackEdgeAdded(true);
           return setSpeedEdgeValue(1);
 
         case "intellect":
+          setJackEdgeAdded(true);
           return setIntellectEdgeValue(1);
       }
     }
@@ -139,6 +160,11 @@ function Pools() {
 
     if (descriptorData?.name === "Adaptable")
       setAdaptableCornerCaseAdded(false);
+
+    if (descriptorData?.name === "Intimidating")
+      setIntimidatingCornerCaseAdded(false);
+
+    if (types[characterIndex]?.name === "Jack") setJackEdgeAdded(false);
   }
 
   const { characterInfo } = useContext(CharacterContext);
@@ -172,12 +198,21 @@ function Pools() {
     types[characterIndex].stats.points as number
   );
 
-  // controlls adaptable corner case addition to an pool
+  // corner cases
+  // controls adaptable corner case addition to a pool
   const [adaptableCornerCaseAdded, setAdaptableCornerCaseAdded] =
     useState<boolean>(false);
 
+  // controls intimidating corner case addition to a pool
+  const [intimidatingCornerCaseAdded, setIntimidatingCornerCaseAdded] =
+    useState<boolean>(false);
+
+  const [jackEdgeAdded, setJackEdgeAdded] = useState<boolean>(false);
+
   useEffect(() => {
     setAdaptableCornerCaseAdded(false);
+    setIntimidatingCornerCaseAdded(false);
+    setJackEdgeAdded(false);
   }, []);
 
   // descriptor stats values
@@ -251,6 +286,17 @@ function Pools() {
             </button>
           ) : null}
 
+          {/* intimidating corner case*/}
+          {descriptorData?.name === "Intimidating" &&
+          !intimidatingCornerCaseAdded ? (
+            <button
+              onClick={() => intimidationCornerCase("might")}
+              className="intimidating-case-button"
+            >
+              +2
+            </button>
+          ) : null}
+
           <div>
             <button
               className="pools-button"
@@ -282,6 +328,17 @@ function Pools() {
             </button>
           ) : null}
 
+          {/* intimidating corner case*/}
+          {descriptorData?.name === "Intimidating" &&
+          !intimidatingCornerCaseAdded ? (
+            <button
+              onClick={() => intimidationCornerCase("both")}
+              className="intimidating-case-button"
+            >
+              +1 in might and intellect
+            </button>
+          ) : null}
+
           <div>
             <button
               className="pools-button"
@@ -308,6 +365,17 @@ function Pools() {
             <button
               onClick={() => adaptableCornerCase("intellect")}
               className="adaptable-case-button"
+            >
+              +2
+            </button>
+          ) : null}
+
+          {/* intimidating corner case*/}
+          {descriptorData?.name === "Intimidating" &&
+          !intimidatingCornerCaseAdded ? (
+            <button
+              onClick={() => intimidationCornerCase("intellect")}
+              className="intimidating-case-button"
             >
               +2
             </button>
@@ -352,8 +420,10 @@ function Pools() {
         <span className="edges-wrapper">
           <span className="edges-children">
             <span>Might</span>
+
             <span>{mightEdgeValue}</span>
-            {characterInfo.type === "Jack" ? (
+
+            {characterInfo.type === "Jack" && !jackEdgeAdded ? (
               <button
                 className="edge-button"
                 onClick={() => addEdgeValueForJack("might")}
@@ -365,8 +435,10 @@ function Pools() {
 
           <span className="edges-children">
             <span>Speed</span>
+
             <span>{speedEdgeValue}</span>
-            {characterInfo.type === "Jack" ? (
+
+            {characterInfo.type === "Jack" && !jackEdgeAdded ? (
               <button
                 className="edge-button"
                 onClick={() => addEdgeValueForJack("speed")}
@@ -378,8 +450,10 @@ function Pools() {
 
           <span className="edges-children">
             <span>Intellect</span>
+
             <span>{intellectEdgeValue}</span>
-            {characterInfo.type === "Jack" ? (
+
+            {characterInfo.type === "Jack" && !jackEdgeAdded ? (
               <button
                 className="edge-button"
                 onClick={() => addEdgeValueForJack("intellect")}
@@ -389,6 +463,8 @@ function Pools() {
             ) : null}
           </span>
         </span>
+
+        <b>Effort: 1</b>
       </div>
 
       <span className="divider"></span>

@@ -7,6 +7,7 @@ import "./styles/Skills.scss";
 import "./styles/Abilities.scss";
 import "./styles/AdditionalInfo.scss";
 import "./styles/Divider.scss";
+import "./styles/Responsive.scss";
 
 import { Generator } from "./components/Generator";
 import { CustomizationPage } from "./components/CustomizationPage";
