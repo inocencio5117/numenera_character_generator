@@ -867,14 +867,14 @@ const types = [
       intellect: 10,
       points: 6,
     },
-    sources: [{ sourcebook: "Players Guide", page: 24 }],
+    sources: [{ sourcebook: "Players Guide 2e", page: 24 }],
     edges: {
       points: 1,
     },
     shins: 8,
     cypherlimit: 2,
+    fixedability: ["Flex Skill"],
     abilities: [
-      "Flex Skill",
       "Trained in Armor",
       "Create Deadly Poison",
       "Critter Companion",

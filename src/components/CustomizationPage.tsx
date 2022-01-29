@@ -415,9 +415,13 @@ function CustomizationPage() {
 
         <div className="abilities-wrapper">
           <span className="abilities-children">
-            <span>Fixed Abilities</span>
+            <span>Fixed Abilities:</span>
 
             <span className="abilities-fixed">
+              {types[characterIndex].name === "Jack" ? (
+                <span>{types[characterIndex].fixedability}</span>
+              ) : null}
+
               {fociData?.abilities?.map((abilities) => {
                 return <span>{abilities}</span>;
               })}
@@ -454,6 +458,62 @@ function CustomizationPage() {
                 );
               })}
             </span>
+          </span>
+        </div>
+      </div>
+
+      <span className="divider"></span>
+
+      <div className="additional-container">
+        <span className="additional-title">Additional Information</span>
+
+        <div className="additional-wrapper">
+          <span className="additional-children">
+            <span>Equipment:</span>
+
+            <ul>
+              {types[characterIndex].equipment.map((equipment) => {
+                return <li>{equipment}</li>;
+              })}
+              {fociData?.equipment?.map((equipment) => {
+                return <li>{equipment}</li>;
+              })}
+              {descriptorData?.equipment?.map((equipment) => {
+                return <li>{equipment}</li>;
+              })}
+            </ul>
+          </span>
+
+          <span className="additional-children">
+            <span>References:</span>
+
+            <b>{types[characterIndex].name}</b>
+            <span>
+              {types[characterIndex].sourcebook}, page{" "}
+              {types[characterIndex].page}
+            </span>
+
+            <b>{fociData?.name}</b>
+            <span>
+              {fociData?.sourcebook}, page {fociData?.page}
+            </span>
+
+            <b>{descriptorData?.name}</b>
+            <span>
+              {descriptorData?.sourcebook}, page {descriptorData?.page}
+            </span>
+          </span>
+
+          <span className="additional-children">
+            <b>Shins</b>
+            <span>{}</span>
+
+            <b>Cyphers</b>
+            <span>{types[characterIndex].cyphers}</span>
+            <span>Cypher limit: {types[characterIndex].cypherlimit}</span>
+
+            <b>Oddities</b>
+            <span>{types[characterIndex].oddities}</span>
           </span>
         </div>
       </div>
