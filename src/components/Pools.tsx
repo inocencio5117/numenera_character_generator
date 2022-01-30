@@ -171,7 +171,9 @@ function Pools() {
         intellectFromDescriptor +
         intellectFromFocus
     );
-    setPointsValue(types[characterIndex].stats.points);
+    setPointsValue(
+      types[characterIndex].stats.points + (descriptorData?.stats?.points || 0)
+    );
     setIntellectEdgeValue(types[characterIndex].edges.intellect);
     setMightEdgeValue(types[characterIndex].edges.might);
     setSpeedEdgeValue(types[characterIndex].edges.speed);
@@ -256,9 +258,12 @@ function Pools() {
         intellectFromDescriptor +
         intellectFromFocus
     );
-    setPointsValue(types[characterIndex].stats.points);
+    setPointsValue(
+      types[characterIndex].stats.points + (descriptorData?.stats?.points || 0)
+    );
   }, [
     characterIndex,
+    descriptorData?.stats?.points,
     intellectFromDescriptor,
     intellectFromFocus,
     mightFromDescriptor,

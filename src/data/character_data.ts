@@ -746,50 +746,50 @@ const descriptors = [
       "A book in which you've listed the names of those who've wronged you",
     ],
   },
-  // {
-  //   name: "Mutant",
-  //   sourcebook: "Numenera Corebook",
-  //   page: 123,
-  //   extras: "Requires the Numenera Corebook to select mutations",
-  // },
-  // {
-  //   name: "Varjellan",
-  //   sourcebook: "Numenera Corebook",
-  //   page: 121,
-  //   stats: {
-  //     points: -3,
-  //   },
-  //   skills: {
-  //     trained: ["Numenera", "Visual perception"],
-  //     inability: ["History", "Poetry and oration", "Hearing"],
-  //   },
-  //   abilities: ["Reforging", "Slow to recover"],
-  // },
-  // {
-  //   name: "Lattimor",
-  //   sourcebook: "Numenera Corebook",
-  //   page: 122,
-  //   stats: {
-  //     might: 4,
-  //   },
-  //   abilities: ["Change state"],
-  //   skills: {
-  //     trained: [
-  //       "Perception (when in Fugue state)",
-  //       "Attacks in one weapon type (when in Bursk state)",
-  //       "Breaking things (when in Bursk state)",
-  //       "All interactions with others (when in Neem state)",
-  //       "All tasks involving studying, contemplation or mental concentration, including esoteries (when in Neem state)",
-  //     ],
-  //     inability: [
-  //       "Lore, knowledge or understanding tasks (when in Bursk state)",
-  //       "Interacting with others in a pleasant manner (when in Bursk state)",
-  //       "Concentration or study - including using esoteries (when in Bursk state)",
-  //       "Attack and defense (when in Neem state)",
-  //       "Perception (when in Neem state)",
-  //     ],
-  //   },
-  // },
+  {
+    name: "Mutant",
+    sourcebook: "Numenera Corebook",
+    page: 123,
+    extras: ["Requires the Numenera Corebook to select mutations"],
+  },
+  {
+    name: "Varjellan",
+    sourcebook: "Numenera Corebook",
+    page: 121,
+    stats: {
+      points: -3,
+    },
+    skills: {
+      trained: ["Numenera", "Visual perception"],
+      inability: ["History", "Poetry and oration", "Hearing"],
+    },
+    abilities: ["Reforging", "Slow to recover"],
+  },
+  {
+    name: "Lattimor",
+    sourcebook: "Numenera Corebook",
+    page: 122,
+    stats: {
+      might: 4,
+    },
+    abilities: ["Change state"],
+    skills: {
+      trained: [
+        "Perception (when in Fugue state)",
+        "Attacks in one weapon type (when in Bursk state)",
+        "Breaking things (when in Bursk state)",
+        "All interactions with others (when in Neem state)",
+        "All tasks involving studying, contemplation or mental concentration, including esoteries (when in Neem state)",
+      ],
+      inability: [
+        "Lore, knowledge or understanding tasks (when in Bursk state)",
+        "Interacting with others in a pleasant manner (when in Bursk state)",
+        "Concentration or study - including using esoteries (when in Bursk state)",
+        "Attack and defense (when in Neem state)",
+        "Perception (when in Neem state)",
+      ],
+    },
+  },
 ];
 
 const types = [
@@ -1123,17 +1123,17 @@ const foci = [
     abilities: ["Natural Crafter", "Seeds of a Plan", "Starting Iotum"],
     sources: [{ sourcebook: "Players Guide 2e", page: 64 }],
   },
-  // {
-  //   name: "Carries a Quiver",
-  //   sourcebook: "Numenera Corebook",
-  //   page: 54,
-  //   equipment: ["A well-made bow", "Two-dozen arrows"],
-  //   abilities: ["Archer"],
-  //   skills: {
-  //     trained: ["Making arrows"],
-  //   },
-  //   sources: [{ sourcebook: "Players Guide", page: 40 }],
-  // },
+  {
+    name: "Carries a Quiver",
+    sourcebook: "Numenera Corebook",
+    page: 54,
+    equipment: ["A well-made bow", "Two-dozen arrows"],
+    abilities: ["Archer"],
+    skills: {
+      trained: ["Making arrows"],
+    },
+    sources: [{ sourcebook: "Players Guide", page: 40 }],
+  },
   {
     name: "Commands Mental Powers",
     sourcebook: "Numenera Discovery",
@@ -1175,24 +1175,24 @@ const foci = [
     abilities: ["Psychedelic esoteries", "Minor Illusion"],
     sources: [{ sourcebook: "Players Guide", page: 67 }],
   },
-  // {
-  //   name: "Crafts Unique Objects",
-  //   sourcebook: "Numenera Corebook",
-  //   page: 58,
-  //   equipment: [
-  //     "A bag of light tools",
-  //     "Tools required to make the two kinds of items you know how to make",
-  //     "Any normal level 1 or 2 item you are able to make",
-  //   ],
-  //   oddities: ["An oddity chosen by the GM"],
-  //   skills: {
-  //     trained: [
-  //       "Creating 2 types of items",
-  //       "Identifying the function of any kind of device",
-  //     ],
-  //   },
-  //   sources: [{ sourcebook: "Players Guide", page: 44 }],
-  // },
+  {
+    name: "Crafts Unique Objects",
+    sourcebook: "Numenera Corebook",
+    page: 58,
+    equipment: [
+      "A bag of light tools",
+      "Tools required to make the two kinds of items you know how to make",
+      "Any normal level 1 or 2 item you are able to make",
+    ],
+    oddities: ["An oddity chosen by the GM"],
+    skills: {
+      trained: [
+        "Creating 2 types of items",
+        "Identifying the function of any kind of device",
+      ],
+    },
+    sources: [{ sourcebook: "Players Guide", page: 44 }],
+  },
   {
     name: "Dances With Dark Matter",
     sourcebook: "Numenera Destiny",

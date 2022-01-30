@@ -58,12 +58,31 @@ function GeneratorHeader() {
             adjective
           </option>
 
+          {/* Destiny & Discovery */}
+          <option disabled>Destiny & Discovery</option>
           {descriptors.map((descriptor) => {
-            return (
-              <option value={descriptor.name} key={descriptor.name}>
-                {descriptor.name}
-              </option>
-            );
+            if (
+              descriptor.sourcebook === "Numenera Discovery" ||
+              descriptor.sourcebook === "Numenera Destiny"
+            ) {
+              return (
+                <option value={descriptor.name} key={descriptor.name}>
+                  {descriptor.name}
+                </option>
+              );
+            }
+          })}
+
+          {/* Corebook */}
+          <option disabled>Corebook</option>
+          {descriptors.map((descriptor) => {
+            if (descriptor.sourcebook === "Numenera Corebook") {
+              return (
+                <option value={descriptor.name} key={descriptor.name}>
+                  {descriptor.name}
+                </option>
+              );
+            }
           })}
         </select>
 
@@ -72,6 +91,7 @@ function GeneratorHeader() {
             noun
           </option>
 
+          {/* Discovery & Destiny */}
           {types.map((type) => {
             return (
               <option value={type.name} key={type.name}>
@@ -88,12 +108,31 @@ function GeneratorHeader() {
             verbs
           </option>
 
+          {/* Discovery & Destiny*/}
+          <option disabled>Destiny & Discovery</option>
           {foci.map((foci) => {
-            return (
-              <option value={foci.name} key={foci.name}>
-                {foci.name}
-              </option>
-            );
+            if (
+              foci.sourcebook === "Numenera Discovery" ||
+              foci.sourcebook === "Numenera Destiny"
+            ) {
+              return (
+                <option value={foci.name} key={foci.name}>
+                  {foci.name}
+                </option>
+              );
+            }
+          })}
+
+          {/* Corebook */}
+          <option disabled>Corebook</option>
+          {foci.map((foci) => {
+            if (foci.sourcebook === "Numenera Corebook") {
+              return (
+                <option value={foci.name} key={foci.name}>
+                  {foci.name}
+                </option>
+              );
+            }
           })}
         </select>
 
