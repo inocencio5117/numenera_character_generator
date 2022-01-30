@@ -101,9 +101,24 @@ function Pools() {
   ): React.SetStateAction<number> | void {
     if (pointsValue === 6) return;
 
+    const mightTotalValue =
+      types[characterIndex].stats.might +
+      (descriptorData?.stats?.might || 0) +
+      (fociData?.stats?.might || 0);
+
+    const speedTotalValue =
+      types[characterIndex].stats.speed +
+      (descriptorData?.stats?.speed || 0) +
+      (fociData?.stats?.speed || 0);
+
+    const intellectTotalValue =
+      types[characterIndex].stats.intellect +
+      (descriptorData?.stats?.intellect || 0) +
+      (fociData?.stats?.intellect || 0);
+
     switch (stat) {
       case "might": {
-        if (mightPoolValue === types[characterIndex].stats.might) return;
+        if (mightPoolValue === mightTotalValue) return;
         handleStatsPoints("sub");
         return setMightValue(
           mightPoolValue === types[characterIndex].stats.might
@@ -113,7 +128,7 @@ function Pools() {
       }
 
       case "speed": {
-        if (speedPoolValue === types[characterIndex].stats.speed) return;
+        if (speedPoolValue === speedTotalValue) return;
         handleStatsPoints("sub");
         return setSpeedValue(
           speedPoolValue === types[characterIndex].stats.speed
@@ -123,8 +138,7 @@ function Pools() {
       }
 
       case "intellect":
-        if (intellectPoolValue === types[characterIndex].stats.intellect)
-          return;
+        if (intellectPoolValue === intellectTotalValue) return;
         handleStatsPoints("sub");
         return setIntellectValue(
           intellectPoolValue === types[characterIndex].stats.intellect
