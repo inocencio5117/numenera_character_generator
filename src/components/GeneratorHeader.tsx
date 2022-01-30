@@ -1,3 +1,4 @@
+/* eslint-disable array-callback-return */
 import React, { useContext, useState } from "react";
 
 import { foci, types, descriptors } from "../data/character_data";
