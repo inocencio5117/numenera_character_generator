@@ -240,7 +240,7 @@ const descriptors = [
     },
   },
   {
-    name: "Foward-thinking",
+    name: "Forward-thinking",
     sourcebook: "Numenera Destiny",
     page: 45,
     sources: [{ sourcebook: "Players Guide 2e", page: 48 }],
@@ -346,7 +346,7 @@ const descriptors = [
     skills: {
       trained: [
         "An area of knowledge of your choice",
-        "All tasks involving remembering or memorising things you experience directly (rather than learnt from a book/were told)",
+        "All tasks involving remembering or memorizing things you experience directly (rather than learnt from a book/were told)",
       ],
     },
   },
@@ -436,7 +436,7 @@ const descriptors = [
     abilities: ["Devoted", "Faithful"],
   },
   {
-    name: "Middlesome",
+    name: "Meddlesome",
     sourcebook: "Numenera Destiny",
     page: 50,
     sources: [{ sourcebook: "Players Guide 2e", page: 52 }],
@@ -701,7 +701,7 @@ const descriptors = [
         "Tasks requiring incredible focus or concentration",
       ],
       inability: [
-        "Figuring out puzzles or problems, memorising things or using lore",
+        "Figuring out puzzles or problems, memorizing things or using lore",
       ],
     },
   },
@@ -899,7 +899,7 @@ const types = [
     oddities: ["One oddity (chosen for you by the GM)"],
   },
   {
-    name: "Arkhus",
+    name: "Arkus",
     sourcebook: "Numenera Destiny",
     page: 7,
     stats: {
@@ -915,7 +915,7 @@ const types = [
     shins: 9,
     cypherlimit: 2,
     abilities: [
-      "Anectode",
+      "Anecdote",
       "Babel",
       "Connection With an Organization",
       "Goad",
@@ -1536,7 +1536,7 @@ const foci = [
     name: "Radiates Vitality",
     sourcebook: "Numenera Destiny",
     page: 92,
-    equipment: ["A small metallic pendant that aways seems to turn up"],
+    equipment: ["A small metallic pendant that always seems to turn up"],
     stats: {
       might: 6,
     },
