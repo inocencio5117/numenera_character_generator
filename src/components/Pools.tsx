@@ -245,6 +245,9 @@ function Pools() {
   const speedFromFocus = fociData?.stats?.speed || 0;
   const mightFromFocus = fociData?.stats?.might || 0;
 
+  // varjjelan corner case
+  const isVarjjelan = descriptorData?.name === "Varjellan" ? true : false;
+
   // Loads all stats values
   useEffect(() => {
     setMightValue(
@@ -259,7 +262,8 @@ function Pools() {
         intellectFromFocus
     );
     setPointsValue(
-      types[characterIndex].stats.points + (descriptorData?.stats?.points || 0)
+      types[characterIndex].stats.points +
+        (isVarjjelan ? descriptorData?.stats?.points || 0 : 0)
     );
   }, [
     characterIndex,
