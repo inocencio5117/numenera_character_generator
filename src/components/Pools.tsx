@@ -172,7 +172,8 @@ function Pools() {
         intellectFromFocus
     );
     setPointsValue(
-      types[characterIndex].stats.points + (descriptorData?.stats?.points || 0)
+      types[characterIndex].stats.points +
+        (isVarjjelan ? descriptorData?.stats?.points || 0 : 0)
     );
     setIntellectEdgeValue(types[characterIndex].edges.intellect);
     setMightEdgeValue(types[characterIndex].edges.might);
