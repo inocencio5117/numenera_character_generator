@@ -270,6 +270,7 @@ function Pools() {
     descriptorData?.stats?.points,
     intellectFromDescriptor,
     intellectFromFocus,
+    isVarjjelan,
     mightFromDescriptor,
     mightFromFocus,
     speedFromDescriptor,
