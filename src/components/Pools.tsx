@@ -5,20 +5,6 @@ import { descriptors, foci, types } from "../data/character_data";
 type edgeType = number | undefined;
 
 function Pools() {
-  function lawfulCornerCase(stat: string) {
-    if (lawfulCornerCaseAdded) return;
-
-    switch (stat) {
-      case "might":
-        setLawfulCornerCaseAdded(true);
-        return setMightValue(mightPoolValue + 2);
-
-      case "speed":
-        setLawfulCornerCaseAdded(true);
-        return setSpeedValue(speedPoolValue + 2);
-    }
-  }
-
   function adaptableCornerCase(stat: string) {
     if (adaptableCornerCaseAdded) return;
 
@@ -197,8 +183,6 @@ function Pools() {
       setIntimidatingCornerCaseAdded(false);
 
     if (types[characterIndex]?.name === "Jack") setJackEdgeAdded(false);
-
-    if (descriptorData?.name === "Lawful") setLawfulCornerCaseAdded(false);
   }
 
   const { characterInfo } = useContext(CharacterContext);
@@ -243,14 +227,10 @@ function Pools() {
 
   const [jackEdgeAdded, setJackEdgeAdded] = useState<boolean>(false);
 
-  const [lawfulCornerCaseAdded, setLawfulCornerCaseAdded] =
-    useState<boolean>(false);
-
   useEffect(() => {
     setAdaptableCornerCaseAdded(false);
     setIntimidatingCornerCaseAdded(false);
     setJackEdgeAdded(false);
-    setLawfulCornerCaseAdded(false);
   }, []);
 
   // descriptor stats values
@@ -336,16 +316,6 @@ function Pools() {
             </button>
           ) : null}
 
-          {/* lawful corner case */}
-          {descriptorData?.name === "Lawful" && !lawfulCornerCaseAdded ? (
-            <button
-              onClick={() => lawfulCornerCase("might")}
-              className="adaptable-case-button"
-            >
-              +2
-            </button>
-          ) : null}
-
           <div>
             <button
               className="pools-button"
@@ -385,16 +355,6 @@ function Pools() {
               className="intimidating-case-button"
             >
               +1 in both
-            </button>
-          ) : null}
-
-          {/* lawful corner case*/}
-          {descriptorData?.name === "Lawful" && !lawfulCornerCaseAdded ? (
-            <button
-              onClick={() => lawfulCornerCase("speed")}
-              className="lawful-case-button"
-            >
-              +2
             </button>
           ) : null}
 

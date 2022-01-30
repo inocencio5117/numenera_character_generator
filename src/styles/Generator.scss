@@ -1,6 +1,4 @@
-$prussian: #1a384c;
-$indigo: #29496f;
-$alice: #f2fafc;
+@import "./colors.scss";
 
 .generator {
   margin: 1.5rem 0rem;
@@ -55,6 +53,10 @@ $alice: #f2fafc;
 
       color: white;
 
+      > option {
+        color: black;
+      }
+
       cursor: pointer;
     }
 
@@ -76,7 +78,7 @@ $alice: #f2fafc;
       cursor: pointer;
 
       &:hover {
-        background-color: $alice;
+        background-color: $alice-blue;
         color: #333;
       }
     }

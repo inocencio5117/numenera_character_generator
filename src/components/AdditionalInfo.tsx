@@ -50,7 +50,7 @@ function AdditionalInfo() {
           </span>
 
           <span className="additional-children">
-            <span>Shins: {shinsValue}</span>
+            <b>Shins: {shinsValue}</b>
 
             <b>Cyphers</b>
             <span>{types[characterIndex].cyphers}</span>

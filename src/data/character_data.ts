@@ -398,7 +398,8 @@ const descriptors = [
     page: 49,
     sources: [{ sourcebook: "Players Guide 2e", page: 51 }],
     stats: {
-      points: 4,
+      might: 2,
+      speed: 2,
     },
     skills: {
       trained: ["Knowing, understanding and interpreting laws"],
@@ -406,7 +407,6 @@ const descriptors = [
         "While in any activity that breaks the law, your intellect based rolls are hindered",
       ],
     },
-    extras: ["+2 to might or speed pool"],
   },
   {
     name: "Learned",
@@ -737,14 +737,13 @@ const descriptors = [
     name: "Vicious",
     sourcebook: "Numenera Destiny",
     page: 54,
-    armor: 1,
     sources: [{ sourcebook: "Players Guide 2e", page: 58 }],
     skills: {
       trained: ["Tracking creatures that wronged you"],
     },
-    abilities: ["Bloodthirsty", "Bersek"],
+    abilities: ["Bloodthirsty", "Berserk"],
     equipment: [
-      "A book in which you've listed the names of those who`ve wronged you",
+      "A book in which you've listed the names of those who've wronged you",
     ],
   },
   // {

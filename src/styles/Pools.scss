@@ -183,6 +183,15 @@
         border-radius: 100%;
 
         margin: 1rem 0.5rem 0rem 0.5rem;
+
+        cursor: pointer;
+
+        transition: all 400ms ease-in-out;
+
+        &:hover {
+          background-color: $prussian;
+          color: $alice-blue;
+        }
       }
     }
   }
