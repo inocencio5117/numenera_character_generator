@@ -22,7 +22,6 @@
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    // flex-direction: column;
 
     width: 75%;
 
@@ -43,7 +42,7 @@
 
       font-weight: bold;
       font-size: 1.1rem;
-      letter-spacing: 1px;
+      text-align: center;
 
       outline: none;
       border-bottom: 3px solid white;

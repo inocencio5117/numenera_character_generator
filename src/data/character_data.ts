@@ -1452,7 +1452,7 @@ const foci = [
   },
   {
     name: "Metes Out Justice",
-    sourcebook: "numenera Destiny",
+    sourcebook: "Numenera Destiny",
     page: 86,
     skills: {
       trained: [
@@ -1638,7 +1638,7 @@ const foci = [
   },
   {
     name: "Wears a Sheen of Ice",
-    sourcebook: "Numenera DIscovery",
+    sourcebook: "Numenera Discovery",
     page: 87,
     equipment: ["A bladed weapon made of stronglass which looks like ice"],
     abilities: ["Ice Armor", "Ice Esoteries"],
