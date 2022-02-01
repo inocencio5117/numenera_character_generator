@@ -886,7 +886,7 @@ const types = [
     ],
     skills: {
       trained: ["Any one non-attack/defense task of your choosing"],
-      practiced: ["Light Weapons"],
+      practiced: ["Light and medium Weapons"],
     },
     equipment: [
       "Clothing",

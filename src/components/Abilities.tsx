@@ -50,10 +50,10 @@ function Abilities() {
               ) : null}
 
               {fociData?.abilities?.map((abilities) => {
-                return <span>{abilities}</span>;
+                return <span key={abilities}>{abilities}</span>;
               })}
               {descriptorData?.abilities?.map((abilities) => {
-                return <span>{abilities}</span>;
+                return <span key={abilities}>{abilities}</span>;
               })}
             </span>
           </span>
@@ -68,7 +68,10 @@ function Abilities() {
                 ? null
                 : types[characterIndex].abilities.map((abilities) => {
                     return (
-                      <span onClick={() => addSelectedAbility(abilities)}>
+                      <span
+                        onClick={() => addSelectedAbility(abilities)}
+                        key={abilities}
+                      >
                         {abilities}
                       </span>
                     );
@@ -86,7 +89,10 @@ function Abilities() {
             <span className="abilities-selected">
               {selectedAbility.map((ability) => {
                 return (
-                  <span onClick={() => removeSelectedAbility(ability)}>
+                  <span
+                    onClick={() => removeSelectedAbility(ability)}
+                    key={ability}
+                  >
                     {ability}
                   </span>
                 );
