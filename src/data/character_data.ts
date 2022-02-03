@@ -724,7 +724,6 @@ const descriptors = [
     page: 57,
     armor: 1,
     stats: {
-      speed: 4,
     },
     sources: [{ sourcebook: "Players Guide 2e", page: 58 }],
     skills: {
