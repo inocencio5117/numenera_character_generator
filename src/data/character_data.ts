@@ -678,7 +678,7 @@ const descriptors = [
     sourcebook: "Numenera Discovery",
     page: 57,
     stats: {
-      might: 2,
+      might: 4,
     },
     sources: [{ sourcebook: "Players Guide 2e", page: 57 }],
     skills: {
