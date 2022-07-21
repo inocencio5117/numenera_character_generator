@@ -1,6 +1,8 @@
 import React, { useContext, useEffect, useState } from "react";
-import { CharacterContext } from "../contexts/CharacterContext";
-import { descriptors, foci, types } from "../data/character_data";
+import { CharacterContext } from "../../contexts/CharacterContext";
+import { descriptors, foci, types } from "../../data/character_data";
+
+import "./Pools.scss";
 
 type edgeType = number | undefined;
 

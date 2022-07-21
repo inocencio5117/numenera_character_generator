@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { CharacterContext } from "../contexts/CharacterContext";
+import { CharacterContext } from "../../contexts/CharacterContext";
 
 function CharacterPhrase() {
   // context

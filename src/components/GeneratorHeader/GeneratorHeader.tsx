@@ -1,11 +1,11 @@
 /* eslint-disable array-callback-return */
 import React, { useContext, useState } from "react";
 
-import { foci, types, descriptors } from "../data/character_data";
+import { foci, types, descriptors } from "../../data/character_data";
 
-import { CharacterContext } from "../contexts/CharacterContext";
+import { CharacterContext } from "../../contexts/CharacterContext";
 
-import "../styles/Generator.scss";
+import "../Generator/Generator.scss";
 
 function GeneratorHeader() {
   const [stateType, setStateType] = useState("");

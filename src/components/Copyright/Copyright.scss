@@ -1,4 +1,4 @@
-@import "./colors.scss";
+@import "../../styles/colors.scss";
 
 @mixin content {
   display: flex;
@@ -18,27 +18,6 @@
   width: 80rem;
 }
 
-.about-container {
-  @include content;
-
-  padding-bottom: 1rem;
-
-  h1 {
-    margin: 1rem 0rem;
-  }
-
-  > p {
-    max-width: 80%;
-    margin-bottom: 1rem;
-  }
-
-  > a {
-    color: $pale-silver;
-
-    margin: 0.5rem 0rem;
-  }
-}
-
 .get-started {
   @include content;
 
@@ -49,9 +28,11 @@
   > a {
     padding: 1rem;
 
-    text-decoration: none;
+    text-decoration: none !important;
 
-    background-color: $prussian;
+    color: #fff !important;
+
+    background-color: $prussian !important;
 
     border: none;
     border-radius: 8px;
@@ -65,6 +46,31 @@
     &:hover {
       background-color: $alice-blue !important;
       color: #000 !important;
+    }
+  }
+}
+
+.copyright-container {
+  @include content;
+
+  min-height: 100vh;
+
+  h1 {
+    margin: 1rem 0rem;
+  }
+
+  > p {
+    max-width: 80%;
+    margin-bottom: 1rem;
+
+    > a {
+      color: $munsell;
+
+      text-decoration: none;
+
+      &:visited {
+        color: $pale-silver;
+      }
     }
   }
 }

@@ -1,6 +1,8 @@
 import React, { useContext, useEffect, useState } from "react";
-import { CharacterContext } from "../contexts/CharacterContext";
-import { descriptors, foci, types } from "../data/character_data";
+import { CharacterContext } from "../../contexts/CharacterContext";
+import { descriptors, foci, types } from "../../data/character_data";
+
+import "./Abilities.scss";
 
 function Abilities() {
   function removeSelectedAbility(ability: string) {

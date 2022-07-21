@@ -1,24 +1,16 @@
 import React from "react";
 import "./styles/MainContainer.scss";
-import "./styles/MainContainer.scss";
 import "./styles/GlobalStyles.scss";
-import "./styles/Pools.scss";
-import "./styles/Skills.scss";
-import "./styles/Abilities.scss";
-import "./styles/AdditionalInfo.scss";
 import "./styles/Divider.scss";
 import "./styles/Responsive.scss";
-import "./styles/Copyright.scss";
-import "./styles/NavBar.scss";
-import "./styles/About.scss";
 
-import { Generator } from "./components/Generator";
-import { Copyright } from "./components/Copyright";
+import { Generator } from "./components/Generator/Generator";
+import { Copyright } from "./components/Copyright/Copyright";
 
 import { CharacterContextProvider } from "./contexts/CharacterContext";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { NavBar } from "./components/NavBar";
-import { About } from "./components/About";
+import { NavBar } from "./components/NavBar/NavBar";
+import { About } from "./components/About/About";
 
 function App() {
   return (
