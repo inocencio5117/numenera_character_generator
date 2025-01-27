@@ -129,14 +129,13 @@ const descriptors = [
     shins: 10,
     skills: {
       trained: [
-        "All interactions involving lies or trickery",
-        "Defense against mental effects",
+        "Tasks related to enduring trials of mind and body",
       ],
       inability: [
-        "All tasks involving, identifying or assessing danger, lies, quality, importance, function or power.",
-        "Any task involving lore, knowledge or understanding",
+        "Sometimes you come across as so single-minded that you put people off. Persuasion tasks are hindered."
       ],
     },
+    abilities: ["Dedication Brings Rewards"],
   },
   {
     name: "Confident",
