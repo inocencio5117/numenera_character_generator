@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { CharacterContext } from "../../contexts/CharacterContext";
-import { descriptors, foci, types } from "../../data/character_data";
+import { descriptors, foci, types } from "../../assets/data/character_data";
 
 import "./Skills.scss";
 

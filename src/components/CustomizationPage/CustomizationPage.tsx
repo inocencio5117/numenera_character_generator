@@ -1,5 +1,3 @@
-import React from "react";
-
 import "./CustomizationPage.scss";
 
 import { Pools } from "../Pools/Pools";

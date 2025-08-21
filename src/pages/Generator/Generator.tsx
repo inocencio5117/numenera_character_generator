@@ -1,9 +1,7 @@
 import React, { useContext } from "react";
 import { CharacterContext } from "../../contexts/CharacterContext";
-import { CustomizationPage } from "../CustomizationPage/CustomizationPage";
-import { GeneratorHeader } from "../GeneratorHeader/GeneratorHeader";
-
-import "./Generator.scss";
+import { CustomizationPage } from "../../components/CustomizationPage/CustomizationPage";
+import { GeneratorHeader } from "../../components/GeneratorHeader/GeneratorHeader";
 
 function Generator() {
   const { characterInfo } = useContext(CharacterContext);
