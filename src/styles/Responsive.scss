@@ -5,6 +5,16 @@ div.generator {
     height: 100%;
     width: 95%;
 
+    .selectors {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      > b {
+        font-size: 1.25rem;
+      }
+    }
+
     h1 {
       display: none;
     }
@@ -12,7 +22,7 @@ div.generator {
 
   @media (max-width: 810px) {
     height: 100%;
-    min-height: 31rem;
+    min-height: 33rem;
 
     h1 {
       display: block;

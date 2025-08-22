@@ -20,14 +20,22 @@
 
   form {
     display: flex;
-    justify-content: space-evenly;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
 
-    width: 75%;
+    width: 100%;
 
-    > b {
-      font-size: 1.5rem;
-      font-weight: medium;
+    .selectors {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      justify-content: center;
+
+      > b {
+        font-size: 1.5rem;
+        font-weight: medium;
+      }
     }
 
     #descriptor,
@@ -59,25 +67,47 @@
       cursor: pointer;
     }
 
-    .submit-button {
-      margin: 1rem 0rem;
-      padding: 0.8rem;
+    .buttons {
+      display: flex;
+      gap: 1rem;
 
-      font-size: 1rem;
-      font-weight: bold;
-      letter-spacing: 2px;
+      .submit-button,
+      .randomize-button,
+      .reset-button {
+        margin: 1rem 0rem;
+        padding: 0.8rem;
 
-      background-color: $prussian;
-      border: none;
-      border-radius: 8px;
-      color: white;
+        font-size: 1rem;
+        font-weight: bold;
+        letter-spacing: 2px;
 
-      transition: all 450ms ease-in-out;
+        background-color: $prussian;
+        border: none;
+        border-radius: 8px;
+        color: white;
 
-      cursor: pointer;
+        transition: all 450ms ease-in-out;
 
-      &:hover {
+        cursor: pointer;
+
+        &:hover {
+          background-color: $alice-blue;
+          color: #333;
+        }
+      }
+
+      .randomize-button {
         background-color: $alice-blue;
+        color: #333;
+
+        &:hover {
+          background-color: $indigo;
+          color: white;
+        }
+      }
+
+      .reset-button {
+        background-color: white;
         color: #333;
       }
     }
