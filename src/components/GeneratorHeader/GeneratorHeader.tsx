@@ -1,35 +1,46 @@
-/* eslint-disable array-callback-return */
 import React, { useContext, useState } from "react";
 
-import { foci, types, descriptors } from "../../assets/data/character_data";
-
 import { CharacterContext } from "../../contexts/CharacterContext";
+
+import { Descriptor, descriptorsRepository } from "../../assets/data/Descriptors";
+import { Type, typesRepository } from "../../assets/data/Types";
+import { Foci, fociRepository } from "../../assets/data/Foci";
+
 
 import "./Generator.scss";
 
 function GeneratorHeader() {
-  const [stateType, setStateType] = useState("");
-  const [stateDescriptor, setStateDescriptor] = useState("");
-  const [stateFoci, setStateFoci] = useState("");
+  const [stateType, setStateType] = useState<Type | null>(null);
+  const [stateDescriptor, setStateDescriptor] = useState<Descriptor | null>(null);
+  const [stateFoci, setStateFoci] = useState<Foci | null>(null);
 
   const { characterInfo, setCharacterInfo } = useContext(CharacterContext);
 
   function getFoci(e: React.ChangeEvent<HTMLSelectElement>) {
-    const foci = e.target.value;
+    const fociFormValue = e.target.value;
 
-    setStateFoci(foci);
+    const fociData = fociRepository.find((foci) => foci.name === fociFormValue);
+    setStateFoci(fociData ?? null);
   }
 
   function getType(e: React.ChangeEvent<HTMLSelectElement>) {
     const type = e.target.value;
 
-    setStateType(type);
+    const characterIndex =
+      !characterInfo.type
+        ? typesRepository.findIndex((el) => el.name === type)
+        : 2;
+    const typeData = typesRepository[characterIndex];
+    setStateType(typeData ?? null);
   }
 
   function getDescriptor(e: React.ChangeEvent<HTMLSelectElement>) {
     const descriptor = e.target.value;
 
-    setStateDescriptor(descriptor);
+    const descriptorData = descriptorsRepository.find(
+      (desc) => desc.name === descriptor
+    );
+    setStateDescriptor(descriptorData ?? null);
   }
 
   function getUserInput(e: React.FormEvent) {
@@ -61,7 +72,7 @@ function GeneratorHeader() {
 
           {/* Destiny & Discovery */}
           <option disabled>Destiny & Discovery</option>
-          {descriptors.map((descriptor) => {
+          {descriptorsRepository?.map((descriptor) => {
             if (
               descriptor.sourcebook === "Numenera Discovery" ||
               descriptor.sourcebook === "Numenera Destiny"
@@ -72,11 +83,12 @@ function GeneratorHeader() {
                 </option>
               );
             }
+            return null;
           })}
 
           {/* Corebook */}
           <option disabled>Corebook</option>
-          {descriptors.map((descriptor) => {
+          {descriptorsRepository?.map((descriptor) => {
             if (descriptor.sourcebook === "Numenera Corebook") {
               return (
                 <option value={descriptor.name} key={descriptor.name}>
@@ -84,6 +96,8 @@ function GeneratorHeader() {
                 </option>
               );
             }
+
+            return null;
           })}
         </select>
 
@@ -93,7 +107,7 @@ function GeneratorHeader() {
           </option>
 
           {/* Discovery & Destiny */}
-          {types.map((type) => {
+          {typesRepository?.map((type) => {
             return (
               <option value={type.name} key={type.name}>
                 {type.name}
@@ -111,7 +125,7 @@ function GeneratorHeader() {
 
           {/* Discovery & Destiny*/}
           <option disabled>Destiny & Discovery</option>
-          {foci.map((foci) => {
+          {fociRepository?.map((foci) => {
             if (
               foci.sourcebook === "Numenera Discovery" ||
               foci.sourcebook === "Numenera Destiny"
@@ -122,11 +136,13 @@ function GeneratorHeader() {
                 </option>
               );
             }
+
+            return null;
           })}
 
           {/* Corebook */}
           <option disabled>Corebook</option>
-          {foci.map((foci) => {
+          {fociRepository.map((foci) => {
             if (foci.sourcebook === "Numenera Corebook") {
               return (
                 <option value={foci.name} key={foci.name}>
@@ -134,6 +150,8 @@ function GeneratorHeader() {
                 </option>
               );
             }
+
+            return null;
           })}
         </select>
 

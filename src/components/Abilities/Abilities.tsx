@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
 import { CharacterContext } from "../../contexts/CharacterContext";
-import { descriptors, foci, types } from "../../assets/data/character_data";
 
 import "./Abilities.scss";
 
@@ -18,15 +17,8 @@ function Abilities() {
 
   const { characterInfo } = useContext(CharacterContext);
 
-  const characterIndex =
-    characterInfo.type !== ""
-      ? types.findIndex((el) => el.name === characterInfo.type)
-      : 2;
+  const { type, descriptor, foci } = characterInfo;
 
-  // character data
-  const descriptorData = descriptors.find(
-    (desc) => desc.name === characterInfo.descriptor
-  );
 
   // Abilities
   const [selectedAbility, setSelectedAbility] = useState<string[]>([]);
@@ -35,7 +27,7 @@ function Abilities() {
     setSelectedAbility(selectedAbility);
   }, [selectedAbility]);
 
-  const fociData = foci.find((foci) => foci.name === characterInfo.foci);
+  if (!type || !descriptor || !foci) return null;
 
   return (
     <>
@@ -47,14 +39,14 @@ function Abilities() {
             <span>Fixed Abilities:</span>
 
             <span className="abilities-fixed">
-              {types[characterIndex].name === "Jack" ? (
-                <span>{types[characterIndex].fixedability}</span>
+              {type?.name === "Jack" ? (
+                <span>{type.fixedability?.map((ability) => ability)}</span>
               ) : null}
 
-              {fociData?.abilities?.map((abilities) => {
+              {foci?.abilities?.map((abilities) => {
                 return <span key={abilities}>{abilities}</span>;
               })}
-              {descriptorData?.abilities?.map((abilities) => {
+              {descriptor?.abilities?.map((abilities) => {
                 return <span key={abilities}>{abilities}</span>;
               })}
             </span>
@@ -68,13 +60,13 @@ function Abilities() {
             <span className="abilities-choice">
               {selectedAbility.length === 2
                 ? null
-                : types[characterIndex].abilities.map((abilities) => {
+                : type?.abilities?.map((ability) => {
                     return (
                       <span
-                        onClick={() => addSelectedAbility(abilities)}
-                        key={abilities}
+                        onClick={() => addSelectedAbility(ability)}
+                        key={ability}
                       >
-                        {abilities}
+                        {ability}
                       </span>
                     );
                   })}
@@ -89,7 +81,7 @@ function Abilities() {
               </span>
             )}
             <span className="abilities-selected">
-              {selectedAbility.map((ability) => {
+              {selectedAbility?.map((ability) => {
                 return (
                   <span
                     onClick={() => removeSelectedAbility(ability)}

@@ -7,9 +7,9 @@ function Generator() {
   const { characterInfo } = useContext(CharacterContext);
 
   const loadedInfo =
-    characterInfo.descriptor !== "" &&
-    characterInfo.foci !== "" &&
-    characterInfo.type !== "";
+    Boolean(characterInfo?.descriptor) &&
+    Boolean(characterInfo?.foci) &&
+    Boolean(characterInfo?.type);
 
   return (
     <>

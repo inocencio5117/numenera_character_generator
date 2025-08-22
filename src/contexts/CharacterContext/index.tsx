@@ -1,9 +1,12 @@
 import React, { createContext, useState } from "react";
+import { Foci } from "../../assets/data/Foci";
+import { Type } from "../../assets/data/Types";
+import { Descriptor } from "../../assets/data/Descriptors";
 
 interface ICharacterInfo {
-  type: string;
-  descriptor: string;
-  foci: string;
+  type: Type | null;
+  descriptor: Descriptor | null;
+  foci: Foci | null;
 }
 
 interface ICharacterContextProps {
@@ -13,9 +16,9 @@ interface ICharacterContextProps {
 
 const DEFAULT_CHARACTER_INFO = {
   characterInfo: {
-    type: "",
-    descriptor: "",
-    foci: "",
+    type: null,
+    descriptor: null,
+    foci: null,
   },
   setCharacterInfo: () => {},
 };
@@ -25,7 +28,7 @@ const CharacterContext = createContext<ICharacterContextProps>(
 );
 
 const CharacterContextProvider: React.FC = ({ children }) => {
-  const [characterInfo, setCharacterInfo] = useState(
+  const [characterInfo, setCharacterInfo] = useState<ICharacterInfo>(
     DEFAULT_CHARACTER_INFO.characterInfo
   );
 
