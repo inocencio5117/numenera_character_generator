@@ -1,6 +1,7 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import { VitePWA } from "vite-plugin-pwa";
+import { env } from "process";
 
 export default defineConfig({
   plugins: [
@@ -33,9 +34,12 @@ export default defineConfig({
           },
         ],
         start_url: "/",
-        display: "standalone",
+        display: "fullscreen",
         prefer_related_applications: false,
       },
+      devOptions: {
+        enabled: env.NODE_ENV === "development",
+      }
     }),
   ],
   build: {
