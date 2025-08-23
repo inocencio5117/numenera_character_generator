@@ -1,5 +1,11 @@
 @import "./colors.scss";
 
+div.main-container .trademark {
+  @media (max-width: 810px) {
+    margin-bottom: 5rem;
+  }
+}
+
 div.generator {
   @media (max-width: 1325px) {
     height: 100%;
@@ -36,8 +42,6 @@ div.generator {
   > form {
     @media (max-width: 1325px) {
       flex-direction: column;
-
-      // margin-bottom: 2rem;
 
       #descriptor,
       #type,
@@ -109,6 +113,12 @@ div.customization-page {
 }
 
 nav.navbar {
+  @media (max-width: 1325px) {
+    .navbar-title {
+      display: none;
+    }
+  }
+
   @media (max-width: 810px) {
     justify-content: center;
 
@@ -127,8 +137,12 @@ nav.navbar {
       display: none;
     }
 
-    .navbar-links a {
-      margin: 1.5rem;
+    .navbar-links {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
     }
   }
 }
@@ -144,11 +158,33 @@ div.get-started {
 div.copyright-container {
   @media (max-width: 1325px) {
     width: 95%;
+    min-height: 100vh;
   }
 }
 
 div.about-container {
   @media (max-width: 1325px) {
     width: 95%;
+    min-height: 100vh;
+  }
+}
+
+div.character-history-intro {
+  @media (max-width: 1325px) {
+    width: 95%;
+
+    margin-top: 2rem;
+    height: fit-content;
+  }
+}
+
+div.character-history-container {
+  @media (max-width: 1325px) {
+    width: 95%;
+    min-height: fit-content;
+  }
+
+ .character-history-list {
+    padding: 1rem 3rem;
   }
 }

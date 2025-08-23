@@ -1,0 +1,91 @@
+@import "../../styles/colors.scss";
+
+@mixin content {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  border-radius: 15px;
+
+  margin-bottom: 2rem;
+
+  font-size: 1.25rem;
+
+  background-color: rgba(158, 158, 158, 0.25);
+  color: #fff;
+
+  height: auto;
+  width: 80rem;
+}
+
+.character-history-container {
+  @include content;
+
+  padding-bottom: 1rem;
+
+  h1 {
+    margin: 1rem 0rem;
+  }
+
+  > p {
+    max-width: 80%;
+    margin-bottom: 1rem;
+  }
+
+  > a {
+    color: $pale-silver;
+
+    margin: 0.5rem 0rem;
+  }
+
+  .character-history-actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 0.25rem;
+
+    button {
+        margin: 1rem 0rem;
+        padding: 0.8rem;
+
+        font-size: 1rem;
+        font-weight: bold;
+        letter-spacing: 2px;
+
+        background-color: white;
+        border: none;
+        border-radius: 8px;
+        color: #333;
+
+        cursor: pointer;
+    }
+  }
+}
+
+.character-history-intro {
+  @include content;
+
+  height: 10rem;
+  padding: 0.5rem;
+  justify-content: center;
+  font-size: 1.25rem;
+
+  p {
+    padding: 1rem;
+    color: #fff;
+  }
+}
+
+.character-history-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1rem 0;
+
+  .character-history-item .character-history-fake-link {
+    font-size: 1rem;
+    cursor: pointer;
+    text-decoration: underline;
+  }
+}

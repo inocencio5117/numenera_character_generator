@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 
 import { CharacterContext } from "../../contexts/CharacterContext";
 
@@ -11,6 +11,7 @@ import { Foci, fociRepository } from "../../assets/data/Foci";
 
 import "./Generator.scss";
 import { ConfirmationModal } from "../ConfirmationModal/ConfirmationModal";
+import { useCharacterHistory } from "../../hooks/useCharacterHistory";
 
 function GeneratorHeader() {
   const [stateType, setStateType] = useState<Type | null>(null);
@@ -68,13 +69,6 @@ function GeneratorHeader() {
     const randomFoci =
       fociRepository[Math.floor(Math.random() * fociRepository.length)];
 
-    setCharacterInfo({
-      ...characterInfo,
-      type: randomType,
-      descriptor: randomDescriptor,
-      foci: randomFoci,
-    });
-
     setStateType(randomType);
     setStateDescriptor(randomDescriptor);
     setStateFoci(randomFoci);
@@ -91,6 +85,17 @@ function GeneratorHeader() {
     setStateDescriptor(null);
     setStateFoci(null);
   }
+
+  const { saveCharacterToHistory } = useCharacterHistory();
+
+  useEffect(() => {
+    if (!characterInfo.type || !characterInfo.descriptor || !characterInfo.foci) {
+      return;
+    }
+
+    saveCharacterToHistory();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [characterInfo]);
 
   return (
     <div className="generator">
