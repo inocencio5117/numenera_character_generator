@@ -1,8 +1,19 @@
 @import "./colors.scss";
 
-div.main-container .trademark {
-  @media (max-width: 810px) {
-    margin-bottom: 5rem;
+div.main-container {
+  @media (max-width: 1325px) {
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.3),
+        rgba(0, 0, 0, 0.6)
+      ),
+      url("../assets/images/numenera-background.jpg") no-repeat center top fixed;
+  }
+
+  .trademark {
+    @media (max-width: 810px) {
+      margin-bottom: 5rem;
+    }
   }
 }
 
@@ -165,7 +176,6 @@ div.copyright-container {
 div.about-container {
   @media (max-width: 1325px) {
     width: 95%;
-    min-height: 100vh;
   }
 }
 
@@ -184,7 +194,7 @@ div.character-history-container {
     min-height: fit-content;
   }
 
- .character-history-list {
+  .character-history-list {
     padding: 1rem 3rem;
   }
 }
