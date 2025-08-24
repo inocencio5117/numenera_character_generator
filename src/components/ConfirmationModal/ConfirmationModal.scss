@@ -1,0 +1,33 @@
+@import "../../styles/colors.scss";
+
+.confirmation-modal {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 16px;
+
+  .confirmation-buttons {
+    display: flex;
+    gap: .5rem;
+
+    > button {
+      margin: 1rem 0rem;
+      padding: 0.8rem;
+
+      font-size: 1rem;
+      font-weight: bold;
+      letter-spacing: 2px;
+
+      background-color: $prussian;
+      border: none;
+      border-radius: 8px;
+      color: white;
+
+      &.cancel {
+        background-color: $crimson-red;
+        color: $alice-blue;
+      }
+    }
+  }
+}

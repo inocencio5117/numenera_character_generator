@@ -1,9 +1,36 @@
 @import "./colors.scss";
 
+div.main-container {
+  @media (max-width: 1325px) {
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.3),
+        rgba(0, 0, 0, 0.6)
+      ),
+      url("../assets/images/numenera-background.jpg") no-repeat center top fixed;
+  }
+
+  .trademark {
+    @media (max-width: 810px) {
+      margin-bottom: 5rem;
+    }
+  }
+}
+
 div.generator {
   @media (max-width: 1325px) {
     height: 100%;
     width: 95%;
+
+    .selectors {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      > b {
+        font-size: 1.25rem;
+      }
+    }
 
     h1 {
       display: none;
@@ -12,7 +39,7 @@ div.generator {
 
   @media (max-width: 810px) {
     height: 100%;
-    min-height: 31rem;
+    min-height: 33rem;
 
     h1 {
       display: block;
@@ -26,8 +53,6 @@ div.generator {
   > form {
     @media (max-width: 1325px) {
       flex-direction: column;
-
-      // margin-bottom: 2rem;
 
       #descriptor,
       #type,
@@ -99,6 +124,12 @@ div.customization-page {
 }
 
 nav.navbar {
+  @media (max-width: 1325px) {
+    .navbar-title {
+      display: none;
+    }
+  }
+
   @media (max-width: 810px) {
     justify-content: center;
 
@@ -117,8 +148,12 @@ nav.navbar {
       display: none;
     }
 
-    .navbar-links a {
-      margin: 1.5rem;
+    .navbar-links {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
     }
   }
 }
@@ -134,11 +169,32 @@ div.get-started {
 div.copyright-container {
   @media (max-width: 1325px) {
     width: 95%;
+    min-height: 100vh;
   }
 }
 
 div.about-container {
   @media (max-width: 1325px) {
     width: 95%;
+  }
+}
+
+div.character-history-intro {
+  @media (max-width: 1325px) {
+    width: 95%;
+
+    margin-top: 2rem;
+    height: fit-content;
+  }
+}
+
+div.character-history-container {
+  @media (max-width: 1325px) {
+    width: 95%;
+    min-height: fit-content;
+  }
+
+  .character-history-list {
+    padding: 1rem 3rem;
   }
 }

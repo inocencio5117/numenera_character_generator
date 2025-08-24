@@ -1,0 +1,115 @@
+@import "../../styles/colors.scss";
+
+.generator {
+  margin: 1.5rem 0rem;
+  padding: 2rem 0rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 15px;
+
+  background-color: rgba(158, 158, 158, 0.25);
+  color: #fff;
+
+  max-height: 29rem;
+  height: auto;
+  width: 80rem;
+
+  form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+
+    .selectors {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      justify-content: center;
+
+      > b {
+        font-size: 1.5rem;
+        font-weight: medium;
+      }
+    }
+
+    #descriptor,
+    #type,
+    #foci {
+      margin: 1rem 0rem;
+      padding: 0.75rem 0rem;
+
+      font-size: 1rem;
+
+      background-color: transparent;
+
+      font-weight: bold;
+      font-size: 1.1rem;
+      text-align: center;
+
+      outline: none;
+      border-bottom: 3px solid white;
+      border-top: none;
+      border-left: none;
+      border-right: none;
+
+      color: white;
+
+      > option {
+        color: black;
+      }
+
+      cursor: pointer;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 1rem;
+
+      .submit-button,
+      .randomize-button,
+      .reset-button {
+        margin: 1rem 0rem;
+        padding: 0.8rem;
+
+        font-size: 1rem;
+        font-weight: bold;
+        letter-spacing: 2px;
+
+        background-color: $prussian;
+        border: none;
+        border-radius: 8px;
+        color: white;
+
+        transition: all 450ms ease-in-out;
+
+        cursor: pointer;
+
+        &:hover {
+          background-color: $alice-blue;
+          color: #333;
+        }
+      }
+
+      .randomize-button {
+        background-color: $alice-blue;
+        color: #333;
+
+        &:hover {
+          background-color: $indigo;
+          color: white;
+        }
+      }
+
+      .reset-button {
+        background-color: white;
+        color: #333;
+      }
+    }
+  }
+}

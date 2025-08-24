@@ -29,13 +29,6 @@ function About() {
           Email
         </a>
         <a
-          href="https://twitter.com/1nocenci0"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Twitter
-        </a>
-        <a
           href="https://github.com/inocencio5117"
           target="_blank"
           rel="noopener noreferrer"

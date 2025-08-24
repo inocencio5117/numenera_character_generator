@@ -1,0 +1,31 @@
+@import "../../styles/colors.scss";
+
+.export-modal {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 16px;
+
+  .export-buttons {
+    display: flex;
+    gap: 0.75rem;
+
+    > button {
+      margin: 1rem 0rem;
+      padding: 0.8rem;
+
+      font-size: 1rem;
+      font-weight: bold;
+      letter-spacing: 2px;
+      min-width: 6rem;
+
+      background-color: $satin-gold;
+      border: none;
+      border-radius: 8px;
+      color: white;
+
+      cursor: pointer;
+    }
+  }
+}

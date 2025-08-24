@@ -9,6 +9,14 @@ function NavBar() {
       <span className="navbar-title">Numenera Character Generator</span>
 
       <span className="navbar-links">
+        <Link to="/generator" key="generator">
+          Generator
+        </Link>
+
+        <Link to="/character-history" key="character-history">
+          Character History
+        </Link>
+
         <Link to="/" key="copyright">
           Copyright
         </Link>

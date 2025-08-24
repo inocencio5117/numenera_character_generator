@@ -1,33 +1,21 @@
 import React, { useContext, useEffect, useState } from "react";
 import { CharacterContext } from "../../contexts/CharacterContext";
-import { descriptors, foci, types } from "../../data/character_data";
 
 import "./AdditionalInfo.scss";
 
 function AdditionalInfo() {
   const { characterInfo } = useContext(CharacterContext);
 
-  // character data
-  const characterIndex =
-    characterInfo.type !== ""
-      ? types.findIndex((el) => el.name === characterInfo.type)
-      : 2;
-
-  const descriptorData = descriptors.find(
-    (desc) => desc.name === characterInfo.descriptor
-  );
-
-  const fociData = foci.find((foci) => foci.name === characterInfo.foci);
+  const { type, descriptor, foci } = characterInfo;
 
   // shins
   const [shinsValue, setShinsValue] = useState<number | undefined>(0);
 
   useEffect(() => {
     setShinsValue(
-      (descriptorData?.shins ? descriptorData.shins : 0) +
-        types[characterIndex].shins
+      (descriptor?.shins ? descriptor.shins : 0) + (type?.shins || 0)
     );
-  }, [characterIndex, descriptorData?.shins]);
+  }, [descriptor?.shins, type?.shins]);
 
   return (
     <>
@@ -39,13 +27,13 @@ function AdditionalInfo() {
             <b>Equipment:</b>
 
             <ul>
-              {types[characterIndex].equipment.map((equipment) => {
+              {type?.equipment?.map((equipment) => {
                 return <li key={equipment}>{equipment}</li>;
               })}
-              {fociData?.equipment?.map((equipment) => {
+              {foci?.equipment?.map((equipment) => {
                 return <li key={equipment}>{equipment}</li>;
               })}
-              {descriptorData?.equipment?.map((equipment) => {
+              {descriptor?.equipment?.map((equipment) => {
                 return <li key={equipment}>{equipment}</li>;
               })}
             </ul>
@@ -55,53 +43,54 @@ function AdditionalInfo() {
             <b>Shins: {shinsValue}</b>
 
             <b>Cyphers</b>
-            <span>{types[characterIndex].cyphers}</span>
-            <span>Cypher limit: {types[characterIndex].cypherlimit}</span>
+            {type?.cyphers?.map((cypher) => (
+              <span key={cypher}>{cypher}</span>
+            ))}
+            <span>Cypher limit: {type?.cypherlimit}</span>
 
             <b>Oddities</b>
-            <span>{types[characterIndex].oddities}</span>
+            {type?.oddities.map((oddity) => (
+              <span key={oddity}>{oddity}</span>
+            ))}
 
-            {fociData?.extras || descriptorData?.extras ? <b>Extras:</b> : null}
+            {foci?.extras || descriptor?.extras ? <b>Extras:</b> : null}
             <ul>
-              {fociData?.extras?.map((equipment) => {
+              {foci?.extras?.map((equipment) => {
                 return <li key={equipment}>{equipment}</li>;
               })}
-              {descriptorData?.extras?.map((extras) => {
+              {descriptor?.extras?.map((extras) => {
                 return <li key={extras}>{extras}</li>;
               })}
             </ul>
 
-            {fociData?.artifacts ? <b>Artifacts:</b> : null}
+            {foci?.artifacts ? <b>Artifacts:</b> : null}
             <ul>
-              {fociData?.artifacts?.map((equipment) => {
+              {foci?.artifacts?.map((equipment) => {
                 return <li key={equipment}>{equipment}</li>;
               })}
             </ul>
 
-            {descriptorData?.armor || fociData?.armor ? (
-              <b>
-                Armor: {(descriptorData?.armor || 0) + (fociData?.armor || 0)}
-              </b>
+            {descriptor?.armor || foci?.armor ? (
+              <b>Armor: {(descriptor?.armor || 0) + (foci?.armor || 0)}</b>
             ) : null}
           </span>
 
           <span className="additional-children">
             <b>References:</b>
 
-            <b>{types[characterIndex].name}</b>
+            <b>{type?.name}</b>
             <span>
-              {types[characterIndex].sourcebook}, page{" "}
-              {types[characterIndex].page}
+              {type?.sourcebook}, page {type?.page}
             </span>
 
-            <b>{fociData?.name}</b>
+            <b>{foci?.name}</b>
             <span>
-              {fociData?.sourcebook}, page {fociData?.page}
+              {foci?.sourcebook}, page {foci?.page}
             </span>
 
-            <b>{descriptorData?.name}</b>
+            <b>{descriptor?.name}</b>
             <span>
-              {descriptorData?.sourcebook}, page {descriptorData?.page}
+              {descriptor?.sourcebook}, page {descriptor?.page}
             </span>
           </span>
         </div>
