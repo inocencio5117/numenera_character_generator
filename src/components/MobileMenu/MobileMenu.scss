@@ -1,0 +1,55 @@
+@import "../../styles/colors.scss";
+
+.mobile-menu {
+  .menu-button {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0.25rem;
+
+    font-size: 1rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+
+    background-color: $prussian;
+    border: none;
+    border-radius: 8px;
+    color: white;
+
+    transition: all 350ms ease-in-out;
+  }
+}
+
+.mobile-menu-links {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.25rem;
+  border-radius: 0.5rem;
+  padding: 1rem;
+
+  width: 50%;
+
+  background-color: rgba(158, 158, 158, 0.95);
+  color: white;
+  font-weight: bold;
+
+  position: fixed;
+  bottom: 5.25rem;
+  right: 1.5rem;
+
+  > a {
+    text-decoration: none;
+    font-size: 1.25rem;
+    transition: all 350ms ease-in-out;
+
+    &:visited {
+      color: #fff;
+    }
+  }
+}
