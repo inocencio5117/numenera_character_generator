@@ -90,7 +90,7 @@ function Pools() {
     stat,
     type,
     foci,
-    descriptor
+    descriptor,
   }: {
     stat: string;
     type: Type | null;
@@ -175,27 +175,20 @@ function Pools() {
   function resetPoolsPoint(type: Type | null, descriptor: Descriptor | null) {
     if (!type || !descriptor) return;
 
-    setMightValue(
-      type.stats.might + mightFromDescriptor + mightFromFocus
-    );
-    setSpeedValue(
-      type.stats.speed + speedFromDescriptor + speedFromFocus
-    );
+    setMightValue(type.stats.might + mightFromDescriptor + mightFromFocus);
+    setSpeedValue(type.stats.speed + speedFromDescriptor + speedFromFocus);
     setIntellectValue(
-      type.stats.intellect +
-        intellectFromDescriptor +
-        intellectFromFocus
+      type.stats.intellect + intellectFromDescriptor + intellectFromFocus
     );
     setPointsValue(
       type.stats.points +
-        (isVarjjelan ? (descriptor?.stats?.points || 0) || 0 : 0)
+        (isVarjjelan ? descriptor?.stats?.points || 0 || 0 : 0)
     );
     setIntellectEdgeValue(type.edges.intellect);
     setMightEdgeValue(type.edges.might);
     setSpeedEdgeValue(type.edges.speed);
 
-    if (descriptor?.name === "Adaptable")
-      setAdaptableCornerCaseAdded(false);
+    if (descriptor?.name === "Adaptable") setAdaptableCornerCaseAdded(false);
 
     if (descriptor?.name === "Intimidating" || "Persevering")
       setIntimidatingCornerCaseAdded(false);
@@ -203,7 +196,7 @@ function Pools() {
     if (type?.name === "Jack") setJackEdgeAdded(false);
   }
 
-  const { characterInfo } = useContext(CharacterContext);
+  const { characterInfo, setCharacterInfo } = useContext(CharacterContext);
 
   const { type, descriptor, foci } = characterInfo;
 
@@ -271,7 +264,20 @@ function Pools() {
       (type?.stats.points || 0) +
         (isVarjjelan ? descriptor?.stats?.points || 0 : 0)
     );
-  }, [descriptor, intellectFromDescriptor, intellectFromFocus, isVarjjelan, mightFromDescriptor, mightFromFocus, speedFromDescriptor, speedFromFocus, type?.stats?.intellect, type?.stats?.might, type?.stats.points, type?.stats?.speed]);
+  }, [
+    descriptor,
+    intellectFromDescriptor,
+    intellectFromFocus,
+    isVarjjelan,
+    mightFromDescriptor,
+    mightFromFocus,
+    speedFromDescriptor,
+    speedFromFocus,
+    type?.stats?.intellect,
+    type?.stats?.might,
+    type?.stats.points,
+    type?.stats?.speed,
+  ]);
 
   // edge values
   const [mightEdgeValue, setMightEdgeValue] = useState<edgeType>(
@@ -290,6 +296,26 @@ function Pools() {
     setSpeedEdgeValue(type?.edges.speed);
     setIntellectEdgeValue(type?.edges.intellect);
   }, [type?.edges?.intellect, type?.edges?.might, type?.edges?.speed]);
+
+  useEffect(() => {
+    if (pointsValue === 0) {
+      setCharacterInfo(prev => {
+        return {
+          ...prev,
+          pools: {
+            might: mightPoolValue,
+            speed: speedPoolValue,
+            intellect: intellectPoolValue,
+          },
+          edge: {
+            might: mightEdgeValue || 0,
+            speed: speedEdgeValue || 0,
+            intellect: intellectEdgeValue || 0,
+          }
+        }
+      })
+    }
+  }, [pointsValue, mightPoolValue, speedPoolValue, intellectPoolValue, mightEdgeValue, speedEdgeValue, intellectEdgeValue]);
 
   if (!type || !descriptor || !foci) return null;
 
@@ -327,12 +353,14 @@ function Pools() {
           <div>
             <button
               className="pools-button"
-              onClick={() => buttonStatControllerSubtract({
-                stat: "might",
-                type,
-                foci,
-                descriptor
-              })}
+              onClick={() =>
+                buttonStatControllerSubtract({
+                  stat: "might",
+                  type,
+                  foci,
+                  descriptor,
+                })
+              }
             >
               -
             </button>
@@ -374,12 +402,14 @@ function Pools() {
           <div>
             <button
               className="pools-button"
-              onClick={() => buttonStatControllerSubtract({
-                stat: "speed",
-                type,
-                foci,
-                descriptor
-              })}
+              onClick={() =>
+                buttonStatControllerSubtract({
+                  stat: "speed",
+                  type,
+                  foci,
+                  descriptor,
+                })
+              }
             >
               -
             </button>
@@ -422,12 +452,14 @@ function Pools() {
           <div>
             <button
               className="pools-button"
-              onClick={() => buttonStatControllerSubtract({
-                stat: "intellect",
-                type,
-                foci,
-                descriptor
-              })}
+              onClick={() =>
+                buttonStatControllerSubtract({
+                  stat: "intellect",
+                  type,
+                  foci,
+                  descriptor,
+                })
+              }
             >
               -
             </button>

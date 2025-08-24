@@ -23,6 +23,7 @@ function GeneratorHeader() {
   const [openModal, setOpenModal] = useState(false);
 
   const { characterInfo, setCharacterInfo } = useContext(CharacterContext);
+  const { saveCharacterToHistory } = useCharacterHistory();
 
   function getFoci(e: React.ChangeEvent<HTMLSelectElement>) {
     const fociFormValue = e.target.value;
@@ -48,15 +49,15 @@ function GeneratorHeader() {
     setStateDescriptor(descriptorData ?? null);
   }
 
-  function getUserInput(e: React.FormEvent) {
+  function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
 
-    setCharacterInfo({
-      ...characterInfo,
+    setCharacterInfo(prev => ({
+      ...prev,
       type: stateType,
       descriptor: stateDescriptor,
       foci: stateFoci,
-    });
+    }));
   }
 
   function randomize() {
@@ -86,22 +87,24 @@ function GeneratorHeader() {
     setStateFoci(null);
   }
 
-  const { saveCharacterToHistory } = useCharacterHistory();
-
   useEffect(() => {
-    if (!characterInfo.type || !characterInfo.descriptor || !characterInfo.foci) {
+    if (
+      !characterInfo.type ||
+      !characterInfo.descriptor ||
+      !characterInfo.foci
+    ) {
       return;
     }
 
     saveCharacterToHistory();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [characterInfo]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [characterInfo.descriptor, characterInfo.type, characterInfo.foci]);
 
   return (
     <div className="generator">
       <h1>Numenera Character Generator</h1>
 
-      <form onSubmit={(e) => getUserInput(e)}>
+      <form onSubmit={(e) => handleSubmit(e)}>
         <div className="selectors">
           <b>I am a</b>
 
@@ -146,7 +149,12 @@ function GeneratorHeader() {
             })}
           </select>
 
-          <select name="type" id="type" onChange={(e) => getType(e)} value={stateType?.name ?? ""}>
+          <select
+            name="type"
+            id="type"
+            onChange={(e) => getType(e)}
+            value={stateType?.name ?? ""}
+          >
             <option value="" selected disabled>
               noun
             </option>
@@ -163,7 +171,12 @@ function GeneratorHeader() {
 
           <b>who</b>
 
-          <select name="foci" id="foci" onChange={(e) => getFoci(e)} value={stateFoci?.name ?? ""}>
+          <select
+            name="foci"
+            id="foci"
+            onChange={(e) => getFoci(e)}
+            value={stateFoci?.name ?? ""}
+          >
             <option value="" selected disabled>
               verbs
             </option>
@@ -217,7 +230,7 @@ function GeneratorHeader() {
           />
         </div>
       </form>
-    
+
       <ConfirmationModal
         open={openModal}
         title="Reset Character"

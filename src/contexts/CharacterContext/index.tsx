@@ -3,10 +3,21 @@ import { Foci } from "../../assets/data/Foci";
 import { Type } from "../../assets/data/Types";
 import { Descriptor } from "../../assets/data/Descriptors";
 
-interface ICharacterInfo {
+export interface ICharacterInfo {
   type: Type | null;
   descriptor: Descriptor | null;
   foci: Foci | null;
+  pools: {
+    might: number;
+    speed: number;
+    intellect: number;
+  };
+  edge: {
+    might: number;
+    speed: number;
+    intellect: number;
+  };
+  abilities: string[] | null;
 }
 
 interface ICharacterContextProps {
@@ -19,6 +30,17 @@ const DEFAULT_CHARACTER_INFO = {
     type: null,
     descriptor: null,
     foci: null,
+    pools: {
+      might: 0,
+      speed: 0,
+      intellect: 0,
+    },
+    edge: {
+      might: 0,
+      speed: 0,
+      intellect: 0,
+    },
+    abilities: [],
   },
   setCharacterInfo: () => {},
 };

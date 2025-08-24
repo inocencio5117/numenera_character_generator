@@ -1,50 +1,53 @@
 import { useContext } from "react";
-import { CharacterContext } from "../contexts/CharacterContext";
+import { CharacterContext, ICharacterInfo } from "../contexts/CharacterContext";
 import { useLocalStorage } from "usehooks-ts";
 import { useNavigate } from "react-router-dom";
 
 const useCharacterHistory = () => {
-    const { characterInfo, setCharacterInfo } = useContext(CharacterContext);
+  const { characterInfo, setCharacterInfo } = useContext(CharacterContext);
 
-    const [value, setValue, removeValue] = useLocalStorage<typeof characterInfo[]>("characterHistory", []);
+  const [value, setValue, removeValue] = useLocalStorage<ICharacterInfo[]>(
+    "characterHistory",
+    []
+  );
 
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
-    const saveCharacterToHistory = () => {
-        if (characterInfo !== undefined && characterInfo !== null) {
-            const isDuplicate = value.some(
-                (item) => JSON.stringify(item) === JSON.stringify(characterInfo)
-            );
-            if (!isDuplicate) {
-                const newHistory = [characterInfo, ...value];
-                setValue(newHistory);
-            }
-        }
-    };
-
-    const loadCharacterFromHistory = (index: number) => {
-        const characterToLoad = value[index];
-        if (characterToLoad) {
-            setCharacterInfo(characterToLoad);
-            navigate("/generator");
-            window.scrollTo(0, 0)
-        }
-    };
-
-    const clearHistory = () => {
-        removeValue();
+  const saveCharacterToHistory = () => {
+    const isDuplicate = value.some(
+      (item) =>
+        item.type?.name === characterInfo.type?.name &&
+        item.descriptor?.name === characterInfo.descriptor?.name &&
+        item.foci?.name === characterInfo.foci?.name
+    );
+    if (!isDuplicate) {
+      setValue((prev) => [characterInfo, ...prev]);
     }
+  };
 
-    if (value.length > 50) {
-        setValue([...value.slice(0, 50)]);
+  const loadCharacterFromHistory = (index: number) => {
+    const characterToLoad = value[index];
+    if (characterToLoad) {
+      setCharacterInfo(characterToLoad);
+      navigate("/generator");
+      window.scrollTo(0, 0);
     }
+  };
 
-    return {
-        history: value,
-        saveCharacterToHistory,
-        loadCharacterFromHistory,
-        clearHistory,
-    };
-}
+  const clearHistory = () => {
+    removeValue();
+  };
+
+  if (value.length > 50) {
+    setValue([...value.slice(0, 50)]);
+  }
+
+  return {
+    history: value,
+    saveCharacterToHistory,
+    loadCharacterFromHistory,
+    clearHistory,
+  };
+};
 
 export { useCharacterHistory };

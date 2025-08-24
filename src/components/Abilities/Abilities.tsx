@@ -15,10 +15,9 @@ function Abilities() {
     setSelectedAbility([...selectedAbility, ability]);
   }
 
-  const { characterInfo } = useContext(CharacterContext);
+  const { characterInfo, setCharacterInfo } = useContext(CharacterContext);
 
   const { type, descriptor, foci } = characterInfo;
-
 
   // Abilities
   const [selectedAbility, setSelectedAbility] = useState<string[]>([]);
@@ -26,6 +25,19 @@ function Abilities() {
   useEffect(() => {
     setSelectedAbility(selectedAbility);
   }, [selectedAbility]);
+
+  useEffect(() => {
+    if (selectedAbility.length === 2) {
+      setCharacterInfo((prev) => ({
+        ...prev,
+        abilities: selectedAbility,
+      }));
+    }
+  }, [selectedAbility]);
+
+  useEffect(() => {
+    setSelectedAbility([]);
+  }, [type, descriptor, foci]);
 
   if (!type || !descriptor || !foci) return null;
 
