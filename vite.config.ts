@@ -9,7 +9,11 @@ export default defineConfig({
     VitePWA({
       registerType: "autoUpdate",
       injectRegister: "auto",
-      includeAssets: ["favicon.ico", "apple-touch-icon-180x180.png", "maskable-icon-512x512.png"],
+      includeAssets: [
+        "favicon.ico",
+        "apple-touch-icon-180x180.png",
+        "maskable-icon-512x512.png",
+      ],
       manifest: {
         name: "Numenera Character Generator",
         short_name: "Numenera Char Gen",
@@ -17,7 +21,7 @@ export default defineConfig({
           "This is a character generator for the Numenera tabletop RPG.",
         theme_color: "#ffffff",
         icons: [
-        {
+          {
             src: "pwa-64x64.png",
             sizes: "64x64",
             type: "image/png",
@@ -32,6 +36,12 @@ export default defineConfig({
             sizes: "512x512",
             type: "image/png",
           },
+          {
+            src: "maskable-icon-512x512.png",
+            sizes: "512x512",
+            type: "image/png",
+            purpose: "maskable",
+          }
         ],
         start_url: "/",
         display: "fullscreen",
@@ -39,7 +49,7 @@ export default defineConfig({
       },
       devOptions: {
         enabled: env.NODE_ENV === "development",
-      }
+      },
     }),
   ],
   build: {

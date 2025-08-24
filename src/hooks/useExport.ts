@@ -69,12 +69,14 @@ const useExport = (exportData: ICharacterInfo | null) => {
   const handleExportTXT = () => {
     if (!exportData) return;
 
+    const fileName = `I am a ${exportData.descriptor?.name} ${exportData.type?.name} who ${exportData.foci?.name}`.replace(/\s+/g, '_').toLowerCase();
+
     const processedText = processDataToText(exportData);
     const dataStr =
       "data:text/plain;charset=utf-8," + encodeURIComponent(processedText);
     const downloadAnchorNode = document.createElement("a");
     downloadAnchorNode.setAttribute("href", dataStr);
-    downloadAnchorNode.setAttribute("download", "character.txt");
+    downloadAnchorNode.setAttribute("download", `${fileName}.txt`);
     document.body.appendChild(downloadAnchorNode); // required for firefox
     downloadAnchorNode.click();
     downloadAnchorNode.remove();
@@ -82,6 +84,8 @@ const useExport = (exportData: ICharacterInfo | null) => {
 
   const handleExportJSON = () => {
     if (!exportData) return;
+
+    const fileName = `I am a ${exportData.descriptor?.name} ${exportData.type?.name} who ${exportData.foci?.name}`.replace(/\s+/g, '_').toLowerCase();
 
     const dataToExport = {
       type: exportData.type,
@@ -96,7 +100,7 @@ const useExport = (exportData: ICharacterInfo | null) => {
       encodeURIComponent(JSON.stringify(dataToExport, null, 2));
     const downloadAnchorNode = document.createElement("a");
     downloadAnchorNode.setAttribute("href", dataStr);
-    downloadAnchorNode.setAttribute("download", "character.json");
+    downloadAnchorNode.setAttribute("download", `${fileName}.json`);
     document.body.appendChild(downloadAnchorNode); // required for firefox
     downloadAnchorNode.click();
     downloadAnchorNode.remove();

@@ -11,6 +11,7 @@ import { Generator } from "./pages/Generator/Generator";
 import { Copyright } from "./pages/Copyright/Copyright";
 import { About } from "./pages/About/About";
 import { CharacterHistory } from "./pages/CharacterHistory/CharacterHistory";
+import { MobileMenu } from "./components/MobileMenu/MobileMenu";
 
 function App() {
   return (
@@ -24,6 +25,8 @@ function App() {
             <Route path="/About" element={<About />} />
             <Route path="/character-history" element={<CharacterHistory />} />
           </Routes>
+
+          <MobileMenu />
         </BrowserRouter>
         <span className="trademark">TM and © 2021 Monte Cook Games, LLC.</span>
       </div>
