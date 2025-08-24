@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/24bbf3d4-b47c-4dbf-b8b0-8e2443c8b9e1/deploy-status)](https://app.netlify.com/projects/numenera-chargen/deploys)
+
 # Numenera Character Generator
 This aplication is a character generator for the Numenera RPG 
 
